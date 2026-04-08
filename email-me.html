@@ -5,22 +5,25 @@
   <button type="submit">Send</button>
 </form>
 
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
 <script>
-document.getElementById("contact-form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const data = {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    message: document.getElementById("message").value
-  };
-  
-  const res = await fetch("https://i1cf9vk5o6.execute-api.us-east-1.amazonaws.com", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
-  });
-  
-  const result = await res.json();
-  alert(result.message);
+(function(){
+  emailjs.init("1I0-snLi3Ia01epgn");
+})();
+
+document.getElementById("contact-form")
+  .addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      "service_oox4wku",
+      "template_j8ka854",
+      this
+    ).then(function() {
+        alert("Message sent successfully!");
+    }, function(error) {
+        alert("Failed to send message");
+    });
 });
 </script>
