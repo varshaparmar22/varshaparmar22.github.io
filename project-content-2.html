@@ -1,0 +1,100 @@
+<div class="project-detail">
+     <h1>Apple Financial Documents – Retrieval-Augmented Generation System</h1>
+    <p class="project-meta">Technologies: <span>LangChain, Qdrant, OpenAI</span></p>
+
+    <img src="images/rag.png" alt="Apple Financial Documents" width="800">
+
+    <div class="project-content">
+        <h2>About the Project</h2>
+        <p>Apple Financial Documents is a production-grade, Retrieval-Augmented Generation (RAG) system
+            built to extract insights, summarize reports, and answer analytical questions from Apple’s annual financial
+            statements.
+            It combines LangChain, Qdrant Cloud, and OpenAI embeddings to deliver a high-performance, explainable, and
+            RAG pipeline — accessible through a Streamlit web interface for real-time financial data
+            exploration.
+        </p>
+
+        <h2>🧠 Key Objectives</h2>
+        <ul>
+            <li>Build a RAG pipeline capable of handling 100K+ financial document records.</li>
+            <li>Compare multiple embedding models, retrievers, and vector databases for accuracy and performance.</li>
+            <li>Evaluate quality using RAGAS metrics (faithfulness, recall, relevance, accuracy).</li>
+            <li>Provide interactive insights and transparent data lineage via a Streamlit dashboard.</li>
+        </ul>
+        <h2>⚙️ Tech Stack</h2>
+        <ul>
+            <li>LLM Framework LangChain</li>
+            <li>Vector Database Qdrant Cloud (HNSW Index)</li>
+            <li>Embeddings OpenAI text-embedding-3-large (optimized to 1536 dimensions)</li>
+            <li>Alternative Models Gemini embedding-001</li>
+            <li>Reranking Cohere RerankRetriever</li>
+            <li>Frontend / UI Streamlit (interactive RAG testing interface)</li>
+            <li>Evaluation RAGAS Framework + Human verification</li>
+            <li>Language Support English, German, French, Italian</li>
+            <li>Data Processing Python (chunking, embedding batching, and pre/post-processing)</li>
+        </ul>
+        <h2>🔍 System Architecture</h2>
+        <ul>
+            <li>1. Data Ingestion: Load and clean Apple’s financial reports (2019–2023).</li>
+            <li>2. Preprocessing & Chunking:
+                Use RecursiveCharacterTextSplitter for efficient context segmentation.
+                Auto-detect token size to balance between context length and embedding cost.</li>
+            <li>3. Embedding Generation:
+                Initial prototypes used Gemini embeddings.
+                Final implementation with OpenAI text-embedding-3-large for speed and accuracy.</li>
+            <li>4. Vector Storage:
+                Migrated from Chroma → Qdrant Cloud, enabling scalable cloud vector search with HNSW indexing.
+                Batch embeddings for improved performance and cost control.</li>
+            <li>5. Retrieval & Search:
+                Baseline: VectorStoreRetriever.
+                Enhanced: MultiQueryRetriever (5 paraphrased variants for richer context).
+                Final: Cohere RerankRetriever for reranked semantic relevance.</li>
+            <li>6. Evaluation & Metrics:
+                Faithfulness, Recall, and Relevance computed using RAGAS.
+                Manual validation of financial Q&A results for precision assurance.</li>
+            <li>7. Frontend:
+                Streamlit web app with Q&A panel, reference chunks, and original source URLs.</li>
+        </ul>
+        <h2>🔬 Key Technical Achievements</h2>
+        <ul>
+            <li>📦 Processed 1.5 Lakh Financial Chunks — optimized Qdrant indexing, solved read timeout errors using
+                batch insertions.</li>
+            <li>🧩 Improved Retrieval Accuracy — 40% gain using MultiQueryRetriever + Cohere Reranker.</li>
+            <li>⚙️ Embedding Optimization — reduced dimensions (3072 → 1536) for 2× faster retrieval.</li>
+            <li>📈 Implemented RAGAS Evaluation — validated answer quality via faithfulness, recall, and relevance.</li>
+            <li>🌐 Interactive Streamlit Dashboard — allows users to query Apple’s financial data and view contextual
+                source snippets instantly.</li>
+        </ul>
+        <h2>🧮 Evaluation Metrics Snapshot</h2>
+        <ul>
+            <li>Metric Description Evaluation Framework</li>
+            <li>Faithfulness Verifies factual accuracy of generated answers RAGAS</li>
+            <li>Relevance Measures contextual match between query and source RAGAS</li>
+            <li>Recall Evaluates completeness of retrieved context RAGAS</li>
+            <li>Accuracy Cross-checked via human and RAGAS evaluation RAGAS + Manual Review</li>
+        </ul>
+        <h2>🌟 Outcome</h2>
+        <ul>
+            <li>Delivered a RAG engine capable of intelligent Q&A over Apple’s financial documents.</li>
+            <li>Created an explainable AI dashboard for analysts to trace every response back to its source document.
+            </li>
+            <li>Benchmarked multiple retrievers and embeddings for optimal accuracy vs. cost trade-offs.</li>
+            <li>Provided a scalable, modular, and production-ready RAG workflow deployable on cloud environments.</li>
+        </ul>
+        <h2>🧩 Future Enhancements</h2>
+        <ul>
+            <li>Add cross-encoder reranking using SentenceTransformer for finer semantic relevance.</li>
+            <li>Integrate AWS Bedrock / VertexAI for hybrid RAG inference.</li>
+            <li>Containerize via Docker + ECS / Lambda for serverless deployment.</li>
+        </ul>
+        <h2>💡 What This Project Demonstrates</h2>
+        <ul>
+            <li>Deep expertise in LangChain orchestration and retrieval optimization.</li>
+            <li>Strong understanding of vector databases, embedding efficiency, and RAG evaluation metrics.</li>
+            <li>End-to-end development from data ingestion → retrieval → LLM inference → evaluation → deployment.</li>
+            <li>The ability to design real-world, scalable AI systems ready for enterprise adoption.</li>
+        </ul>
+
+
+    </div>
+</div>

@@ -1,0 +1,111 @@
+<div class="project-detail">
+     <h1>AI-Powered WhatsApp Healthcare Assistant – Serverless Agent-Based System</h1>
+    <p class="project-meta">Technologies: <span>AWS Lambda, DynamoDB, LangGraph, LLM (RAG), WhatsApp Business API</span></p>
+
+    <img src="images/whatsapp-healthcare.png" alt="WhatsApp Healthcare Assistant" width="800">
+
+    <div class="project-content">
+        <h2>About the Project</h2>
+        <p>
+            AI-Powered WhatsApp Healthcare Assistant is a production-grade, multilingual (English/Gujarati)
+            conversational system designed to automate hospital-patient interactions through WhatsApp.
+            The system leverages AWS serverless architecture and LLM-based agent orchestration to enable
+            appointment booking, symptom-based doctor recommendation, medical Q&A, and secure report summarization.
+            Built with scalability, privacy, and healthcare-safe responses in mind, the architecture follows
+            an event-driven, stateless execution model with persistent conversation state management.
+        </p>
+
+        <h2>🧠 Key Objectives</h2>
+        <ul>
+            <li>Design a scalable WhatsApp-based healthcare assistant with multilingual support.</li>
+            <li>Implement agent-based routing for appointment booking, report analysis, and medical Q&A.</li>
+            <li>Ensure secure document handling with sandboxed processing.</li>
+            <li>Maintain conversation continuity using stateless Lambda execution with external state storage.</li>
+            <li>Optimize for cost-efficiency, reliability, and healthcare compliance.</li>
+        </ul>
+
+        <h2>⚙️ Tech Stack</h2>
+        <ul>
+            <li>Cloud Architecture: AWS Serverless (Lambda-based execution model)</li>
+            <li>State Management: Amazon DynamoDB with TTL-based auto-expiry</li>
+            <li>Agent Orchestration: LangGraph-based routing and decision logic</li>
+            <li>LLM Integration: RAG-based contextual responses</li>
+            <li>Document Processing: Isolated Lambda-based sandbox execution</li>
+            <li>Messaging Platform: WhatsApp Business API (1-to-1 communication)</li>
+            <li>Event Handling: Event-driven asynchronous workflows</li>
+            <li>Language Support: English & Gujarati (template-driven deterministic responses)</li>
+        </ul>
+
+        <h2>🔍 System Architecture</h2>
+        <ul>
+            <li>1. Message Ingestion:
+                Each incoming WhatsApp message triggers a stateless AWS Lambda invocation.</li>
+
+            <li>2. Conversation State Management:
+                Conversation context (intent, step, language preference) is stored in DynamoDB.
+                Each Lambda reads and updates state to maintain multi-step workflows.</li>
+
+            <li>3. Agent Routing Layer:
+                LangGraph determines user intent (appointment, report, medical Q&A, escalation).
+                Deterministic keyword routing with LLM fallback ensures safe intent detection.</li>
+
+            <li>4. Appointment Booking Flow:
+                Multi-step interaction collects symptoms, recommends doctors, and confirms booking.
+                State transitions handled explicitly via step tracking.</li>
+
+            <li>5. Secure Document Processing:
+                Uploaded medical reports are stored in isolated storage and processed in sandboxed Lambda environments.
+                Raw files are never exposed to the LLM; only sanitized extracted text is used.</li>
+
+            <li>6. Asynchronous Workflow Handling:
+                Long-running tasks (report processing) use event-driven updates and user notifications.</li>
+
+            <li>7. State Lifecycle Management:
+                DynamoDB TTL automatically cleans inactive conversation records.</li>
+        </ul>
+
+        <h2>🔬 Key Technical Achievements</h2>
+        <ul>
+            <li>📩 Event-Driven Architecture — Each WhatsApp message handled as independent stateless execution.</li>
+            <li>🗂 Conversation State Persistence — Enabled scalable multi-step workflows without session management.</li>
+            <li>🔐 Secure File Isolation — Implemented sandboxed Lambda execution for safe document summarization.</li>
+            <li>🌐 Multilingual Support — Built deterministic template system for English and Gujarati responses.</li>
+            <li>⚡ Cost Optimization — Reduced orchestration overhead by using lightweight code-driven workflow instead of heavy state machines.</li>
+            <li>📈 Production Scalability — Designed horizontally scalable architecture supporting high concurrent users.</li>
+        </ul>
+
+        <h2>🧮 Operational & Reliability Measures</h2>
+        <ul>
+            <li>State expiry using DynamoDB TTL to prevent stale sessions.</li>
+            <li>Graceful failure handling with explicit FAILED state updates.</li>
+            <li>Idempotent processing to prevent duplicate bookings or repeated executions.</li>
+            <li>Separation of responsibilities: Chat handling Lambda vs Document processing Lambda.</li>
+        </ul>
+
+        <h2>🌟 Outcome</h2>
+        <ul>
+            <li>Delivered a scalable healthcare chatbot capable of handling real-world patient workflows.</li>
+            <li>Enabled secure, multilingual communication through WhatsApp without requiring mobile app installation.</li>
+            <li>Built a cost-efficient, serverless architecture optimized for high-volume interactions.</li>
+            <li>Designed a modular agent-based framework adaptable for future healthcare automation needs.</li>
+        </ul>
+
+        <h2>🧩 Future Enhancements</h2>
+        <ul>
+            <li>Introduce advanced intent classification using embedding-based semantic routing.</li>
+            <li>Integrate hospital EMR/EHR systems for automated record updates.</li>
+            <li>Add analytics dashboard for hospital administrators.</li>
+            <li>Enhance compliance controls with structured audit logs and consent management.</li>
+        </ul>
+
+        <h2>💡 What This Project Demonstrates</h2>
+        <ul>
+            <li>Strong understanding of serverless, event-driven architecture for conversational AI systems.</li>
+            <li>Practical implementation of agent-based LLM orchestration in production-like scenarios.</li>
+            <li>Security-first design with sandboxed execution and least-privilege access.</li>
+            <li>Ability to balance AI intelligence with operational reliability and cost efficiency.</li>
+            <li>Enterprise-oriented thinking aligned with scalable healthcare solution design.</li>
+        </ul>
+
+    </div>
+</div>

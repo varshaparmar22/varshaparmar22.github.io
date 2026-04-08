@@ -1,0 +1,119 @@
+<div class="project-detail">
+   <h1>Serverless Notes App – Static Frontend & Lambda Backend</h1>
+    <p class="project-meta">Technologies: <span>Amazon S3, CloudFront, API Gateway, AWS Lambda, Amazon Cognito, DynamoDB</span></p>
+
+    <img src="images/notes-app.png" alt="Serverless Notes App" width="900">
+
+    <div class="project-content">
+        <h2>About the Project</h2>
+        <p>
+            The Serverless Notes App is a lightweight, secure, and scalable web application for creating, editing,
+            searching, and organizing personal notes. The frontend is a static single-page application hosted on
+            Amazon S3 (served via CloudFront), while the backend is fully serverless: API Gateway routes requests to
+            Lambda functions which implement authentication callbacks and CRUD operations. User identities and tokens
+            are managed with Amazon Cognito and notes are persisted in DynamoDB.
+        </p>
+
+        <h2>🧠 Key Objectives</h2>
+        <ul>
+            <li>Deliver a fast static-site frontend with near-zero operational overhead.</li>
+            <li>Implement secure user authentication using Cognito and token-based access control.</li>
+            <li>Provide a RESTful API (API Gateway + Lambda) to perform CRUD operations on notes.</li>
+            <li>Store user notes reliably and with low-latency using DynamoDB.</li>
+            <li>Keep costs minimal via a pay-per-use serverless design and auto-scaling components.</li>
+        </ul>
+
+        <h2>⚙️ Tech Stack</h2>
+        <ul>
+            <li>Hosting: Amazon S3 (static website) + CloudFront (CDN / HTTPS)</li>
+            <li>API Layer: Amazon API Gateway (REST API - Notes-Rest-Api)</li>
+            <li>Compute: AWS Lambda (notes-api, authorize-cognito-notes-app)</li>
+            <li>Auth: Amazon Cognito User Pool</li>
+            <li>Database: Amazon DynamoDB (NotesTable-App) — Partition key: <code>userId</code>, Sort key: <code>noteId</code></li>
+            <li>CI/CD: (optional) GitHub Actions deploy to S3</li>
+            <li>Frontend: HTML / CSS / JavaScript (Vanilla or lightweight framework)</li>
+        </ul>
+
+        <h2>🔍 System Architecture</h2>
+        <ul>
+            <li>
+                <strong>Frontend (S3 + CloudFront):</strong> Static SPA (HTML/CSS/JS) served from an S3 bucket
+                (notes-app-frontend-varsha) with CloudFront for HTTPS and caching.
+            </li>
+            <li>
+                <strong>Authentication:</strong> Cognito User Pool manages sign-up, sign-in, password reset,
+                and issues JWTs for authenticated requests.
+            </li>
+            <li>
+                <strong>Auth Callback:</strong> <code>/auth/callback</code> route handled by Lambda:authorize-cognito-notes-app.
+            </li>
+            <li>
+                <strong>API Layer:</strong> API Gateway (Notes-Rest-Api) validates tokens (via Cognito) then forwards
+                requests to notes-api Lambda (proxy integration).
+            </li>
+            <li>
+                <strong>Data Storage:</strong> DynamoDB table NotesTable-App holds notes using composite key
+                <code>(userId, noteId)</code> enabling efficient per-user queries.
+            </li>
+            <li>
+                <strong>Typical Request Flow:</strong> Browser → CloudFront/S3 → (login via Cognito) → API Gateway →
+                Lambda → DynamoDB → Lambda → API Gateway → Browser.
+            </li>
+        </ul>
+
+        <h2>🧩 UI / Content Types (What the app contains)</h2>
+        <ul>
+            <li><strong>Authentication Forms</strong>: Sign-up, Sign-in, Forgot Password, Confirm Account.</li>
+            <li><strong>Note Editor</strong>: Rich-text or Markdown editor with live preview (Title, Body, Tags).</li>
+            <li><strong>Note List / Dashboard</strong>: Paginated list of notes, sort by updated_at, search and filter by tags.</li>
+            <li><strong>Note Detail View</strong>: Read-only view showing note content + metadata (created_at, updated_at).</li>
+            <li><strong>CRUD Endpoints</strong> (API): <code>GET /notes</code>, <code>POST /notes</code>, <code>GET /notes/{id}</code>, <code>PUT /notes/{id}</code>, <code>DELETE /notes/{id}</code>.</li>
+            <li><strong>Client-side Validation</strong>: Form validation for title length, required fields, and safe HTML sanitization.</li>
+            <li><strong>Search</strong>: Client-side keyword search + optional server-side full-text index via DynamoDB secondary indexes (if enabled).</li>
+            <li><strong>Offline / Sync (optional)</strong>: LocalStorage caching and background sync to support intermittent connectivity.</li>
+            <li><strong>Settings</strong>: Profile (display name), theme (light/dark), export/import notes JSON.</li>
+            <li><strong>Telemetry / Logging</strong>: CloudWatch logs for Lambda + basic usage metrics (API latency, errors).</li>
+        </ul>
+
+        <h2>🔬 Key Technical Achievements</h2>
+        <ul>
+            <li>Implemented secure token-based auth with Cognito and validated tokens at API Gateway.</li>
+            <li>Designed DynamoDB table with <code>userId</code> partitioning to isolate user data and enable fast queries.</li>
+            <li>Delivered a cost-efficient serverless backend with near-zero idle cost and auto-scaling capabilities.</li>
+            <li>Implemented CORS, input sanitization, and least-privilege IAM roles for Lambdas and API Gateway.</li>
+            <li>Added CI/CD pipeline to automatically publish frontend updates to S3 on push to main (optional).</li>
+        </ul>
+
+        <h2>🧮 Metrics & Operational Snapshot</h2>
+        <ul>
+            <li>Average API latency (p95): &lt; 150 ms (Lambda cold starts minimized via small package size).</li>
+            <li>Estimated monthly cost (low-traffic): under $5 — thanks to S3 + pay-per-request Lambda & DynamoDB.</li>
+            <li>Security: Cognito-managed MFA-ready flows and fine-grained IAM policies for least privilege.</li>
+            <li>Scalability: DynamoDB on-demand mode and Lambda concurrency provide automatic scaling for traffic spikes.</li>
+        </ul>
+
+        <h2>🌟 Outcome</h2>
+        <ul>
+            <li>Delivered a production-ready serverless notes app with secure authentication and efficient note storage.</li>
+            <li>Reduced operational overhead by serving the UI as a static site and using serverless APIs for business logic.</li>
+            <li>Produced a portable architecture that can be extended with features like attachments, sharing, or team collaboration.</li>
+        </ul>
+
+        <h2>🧩 Future Enhancements</h2>
+        <ul>
+            <li>Enable attachments by integrating S3 presigned uploads and storing metadata in DynamoDB.</li>
+            <li>Add full-text search with OpenSearch or integrate DynamoDB Global Secondary Indexes for richer queries.</li>
+            <li>Implement soft-delete + versioning for notes.</li>
+            <li>Introduce server-side pagination, role-based access control for shared notes, and an admin dashboard.</li>
+            <li>Ship native mobile apps that sync with the same backend and support offline-first behavior.</li>
+        </ul>
+
+        <h2>💡 What This Project Demonstrates</h2>
+        <ul>
+            <li>Practical knowledge of AWS serverless architecture and design patterns.</li>
+            <li>Ability to implement secure authentication flows (Cognito + API Gateway).</li>
+            <li>Experience in building low-cost, maintainable, and highly-scalable web applications.</li>
+            <li>Hands-on skills with DynamoDB data modelling and Lambda-based API design.</li>
+        </ul>
+    </div>
+</div>

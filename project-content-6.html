@@ -1,0 +1,107 @@
+<div class="project-detail">
+    <h1 class="project-title">AWS WorkMail Automated Email Signature Management – Serverless</h1>
+    <p class="project-meta">
+        Technologies:
+        <span>Amazon WorkMail, AWS Lambda, Amazon S3, IAM, CloudWatch, Terraform</span>
+    </p>
+
+    <img src="images/workmail-signature.png" alt="AWS WorkMail Signature Automation" width="900">
+
+    <div class="project-content">
+
+        <p>
+        <h2>About the Project</h2>
+        This project demonstrates how to
+        automatically append <strong>professional email signatures</strong> to outgoing emails using
+        <strong>Amazon WorkMail</strong> and <strong>AWS Lambda</strong>.
+        The solution dynamically selects and injects signatures based on contextual rules such as
+        sender address or department, ensuring consistent branding, compliance messaging,
+        and professional communication across the organization.
+        </p>
+
+        <h2>🧠 Key Features</h2>
+
+        <h4>1. Automated Email Signature Injection</h4>
+        <ul>
+            <li><strong>WorkMail Email Flow Rules:</strong> Intercepts outgoing emails in real time</li>
+            <li><strong>Dynamic Signature Selection:</strong> Chooses signature based on sender or context</li>
+            <li><strong>HTML & Plain Text Support:</strong> Proper handling of multipart emails</li>
+        </ul>
+
+        <h4>2. Serverless Email Processing</h4>
+        <ul>
+            <li><strong>AWS Lambda:</strong> Event-driven email processing with Python 3.11</li>
+            <li><strong>No Server Management:</strong> Fully managed, auto-scaling execution</li>
+            <li><strong>Graceful Error Handling:</strong> Emails proceed even if signature logic fails</li>
+        </ul>
+
+        <h4>3. Centralized Signature Management</h4>
+        <ul>
+            <li><strong>Amazon S3:</strong> Stores department-wise signature templates</li>
+            <li><strong>Easy Updates:</strong> Modify signatures without redeploying Lambda</li>
+            <li><strong>Multiple Variants:</strong> Support, Sales, Legal, Default signatures</li>
+        </ul>
+
+        <h4>4. Security & Access Control</h4>
+        <ul>
+            <li><strong>IAM Least Privilege:</strong> Tightly scoped permissions</li>
+            <li><strong>HTTPS-only S3 Access:</strong> Enforced via bucket policy</li>
+            <li><strong>No Hardcoded Secrets:</strong> Uses IAM roles for authentication</li>
+        </ul>
+
+        <h2>⚙️ Technical Implementation</h2>
+
+        <h4>Email Processing Workflow</h4>
+        <ul>
+            <li>Outgoing email triggers WorkMail Email Flow Rule</li>
+            <li>Lambda retrieves raw email content via WorkMail Message Flow API</li>
+            <li>Signature selected from S3 based on sender or department</li>
+            <li>Signature appended to email body (HTML supported)</li>
+            <li>Modified email written back to WorkMail</li>
+        </ul>
+
+        <h4>Monitoring & Observability</h4>
+        <ul>
+            <li><strong>Amazon CloudWatch Logs:</strong> Execution logs and debugging data</li>
+            <li><strong>Log Retention:</strong> Configured for cost-efficient monitoring</li>
+        </ul>
+
+        <h2>🔍 Infrastructure Automation (Terraform)</h2>
+        <ul>
+            <li><strong>Infrastructure as Code:</strong> Lambda, IAM, S3, CloudWatch fully managed via Terraform</li>
+            <li><strong>Single-Command Deployment:</strong> Entire stack deployed using <code>terraform apply</code></li>
+            <li><strong>Automated Packaging:</strong> Lambda ZIP created via Terraform archive provider</li>
+            <li><strong>Repeatable Environments:</strong> Easy dev / prod setup</li>
+            <li><strong>Version Controlled:</strong> Infrastructure tracked alongside application code</li>
+        </ul>
+
+        <h2>🌟 Business Value Delivered</h2>
+        <ul>
+            <li><strong>Consistent Email Branding</strong> across departments</li>
+            <li><strong>Zero Manual Effort</strong> for end users</li>
+            <li><strong>High Scalability</strong> with serverless execution</li>
+            <li><strong>Cost-Optimized</strong> pay-per-use AWS services</li>
+            <li><strong>Enterprise-Ready Security</strong> with IAM best practices</li>
+        </ul>
+
+        <h2>⚙️ Technical Stack</h2>
+        <ul>
+            <li><strong>Compute:</strong> AWS Lambda (Python)</li>
+            <li><strong>Email:</strong> Amazon WorkMail</li>
+            <li><strong>Storage:</strong> Amazon S3</li>
+            <li><strong>Monitoring:</strong> Amazon CloudWatch</li>
+            <li><strong>Infrastructure:</strong> AWS IAM, Terraform</li>
+        </ul>
+
+        <h2>💡 Why This Project Stands Out</h2>
+        <ul>
+            <li><strong>Real-World Enterprise Use Case</strong> for email infrastructure automation</li>
+            <li><strong>Deep WorkMail Integration</strong> using Message Flow APIs</li>
+            <li><strong>Fully Serverless</strong> with zero operational overhead</li>
+            <li><strong>Terraform-Driven</strong> reproducible infrastructure</li>
+            <li><strong>Extensible Design</strong> for future SaaS or multi-tenant use</li>
+        </ul>
+
+
+    </div>
+</div>

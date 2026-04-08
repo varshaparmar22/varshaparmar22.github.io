@@ -1,0 +1,26 @@
+<form id="contact-form">
+  <input type="text" id="name" placeholder="Your Name" required><br>
+  <input type="email" id="email" placeholder="Your Email" required><br>
+  <textarea id="message" placeholder="Your Message" required></textarea><br>
+  <button type="submit">Send</button>
+</form>
+
+<script>
+document.getElementById("contact-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const data = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    message: document.getElementById("message").value
+  };
+  
+  const res = await fetch("https://i1cf9vk5o6.execute-api.us-east-1.amazonaws.com", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
+  
+  const result = await res.json();
+  alert(result.message);
+});
+</script>

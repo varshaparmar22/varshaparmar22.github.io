@@ -1,0 +1,114 @@
+<div class="project-detail">
+       
+    <h1>Airtable-Based Contractor Management and LLM Evaluation System</h1>
+    
+    <img src="images/airtable-2.png" alt="Mermaid Architecture Diagram" width="1200">
+    
+    <div class="project-content">
+        <h2>About the Project</h2>
+        <p>Developed a fully automated recruitment intelligence system that streamlines contractor application management using Airtable, Python, and Large Language Models (LLMs).
+
+The system captures multi-form applicant data, compresses it into structured JSON for efficient storage, applies smart shortlist rules, and enriches each profile using an AI evaluator — all while maintaining data normalization and scalability inside Airtable.
+</p>
+        
+        <h2>Key Features and Architecture</h2>
+        <ul>
+            <li>🧩 1. Structured Airtable Schema
+
+Designed a multi-table relational Airtable base linking applicants, experience, and compensation data:
+
+Applicants (Parent) - central record storing compressed JSON and LLM evaluation fields.
+
+Linked Tables - Personal Details, Work Experience, and Salary Preferences (1:1 and 1:N relationships).
+
+Shortlisted Leads Table - auto-generated when candidate meets selection rules.</li>
+
+<li>⚙️ 2. Python Automations (Local Scripts)
+
+Built two local automation scripts for Airtable data management:
+
+Compression Script: Fetches all linked data, compresses it into a single JSON payload, and writes it to the parent record.
+
+Decompression Script: Reads JSON and restores data back into normalized Airtable tables for easy editing.
+
+💡 This modular approach reduces API calls, speeds up syncing, and keeps the database structure lightweight.</li>
+
+<li>🎯 3. Smart Shortlisting Rules
+
+Implemented a multi-factor candidate evaluation engine that automatically shortlists applicants based on:
+
+Experience: ≥ 4 years or Tier-1 company (Google, Meta, OpenAI, etc.)
+
+Compensation: ≤ $100/hr and ≥ 20 hrs/week availability
+
+Location: US, Canada, UK, Germany, or India
+
+Matching applicants are automatically inserted into the Shortlisted Leads table with reasoning and metadata.</li>
+
+<li>🤖 4. LLM Evaluation & Enrichment
+
+Integrated a secure LLM API endpoint (OpenAI / Anthropic / Gemini) that analyzes each candidate’s JSON profile to:
+
+Generate a 75-word professional summary
+
+Assign a quality score (1-10)
+
+Detect missing or inconsistent fields
+
+Suggest 3 follow-up questions for recruiters
+
+Outputs are automatically written back into the Applicants table, enabling AI-assisted screening and insights within Airtable.</li>
+
+<li>🛡️ 5. Secure & Scalable Integration
+
+Secrets and API keys stored in environment variables or Airtable Secrets (no hardcoding).
+
+Retry logic with exponential backoff for failed API calls.
+
+Guardrails for token limits and change detection (LLM only runs when input data changes).</li>  
+
+        </ul>
+        
+        <h2>Technologies Used</h2>
+        <div class="project-tags">
+            <span>Database & UI	Airtable (Linked Tables, Forms, Automations)</span>
+            <span>Backend Automation	Python (Airtable API, JSON processing)</span>
+            <span>AI Integration	Gemini API</span>
+            <span>Logic Layer	Rule-based Python scripts</span>
+            <span>Data Format	Compressed JSON (nested schema)</span>
+            <span>Deployment	Local scripts, Airtable automations</span>
+</span>
+        </div>
+
+<h2>📊 Workflow Summary</h2>
+        <div class="project-tags">
+        
+<ul >
+<li>Applicants fill 3 forms (Personal, Experience, Salary).</li>
+<li>Python compresses and stores all data as JSON.</li>
+<li>LLM enriches and scores the application.</li>
+<li>Rules engine auto-shortlists qualified candidates.</li>
+<li>Airtable dashboard updates dynamically for recruiters.</li>
+</ul>
+</div>
+
+<h2>🌟 Outcome</h2>
+        <div class="project-tags">
+<ul>    
+<li>Reduced manual review effort by 80%</li>
+<li>Enabled instant AI summaries and candidate scoring</li>
+<li>Fully no-code + low-code + AI solution — scalable, secure, and automation-first</li>
+<li>Perfect foundation for an AI-driven recruiting dashboard or SaaS MVP</li>
+
+</div>
+        
+        <!--<div class="project-links" style="margin-top: 2rem;">
+            <a href="https://github.com/yourusername/airtable-automation" class="button" target="_blank">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+            <a href="https://airtable-automation-demo.com" class="button" target="_blank" style="margin-left: 1rem;">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+        </div>-->
+    </div>
+</div>

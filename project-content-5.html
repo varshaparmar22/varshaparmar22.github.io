@@ -1,0 +1,64 @@
+<div class="project-detail">
+   <h1>AWS Cloud Portfolio - Automated Static Website Deployment (CI/CD + CloudFront)</h1>
+    <p class="project-meta">Technologies: <span>AWS, HTML, JS, CSS, jQuery</span></p>
+
+    <img src="images/s3-static-web-2.png" alt="Automated Static Website Workflow" width="1200">
+    <a href="https://dysi4rqc9dbbx.cloudfront.net/">CloudFront Link</a>
+    <a href="https://s3.console.aws.amazon.com/s3/buckets/portfolio-website/">S3 Link</a>
+    <div class="project-content">
+        <h2>About the Project</h2>
+        <p>Designed and implemented a fully automated static website deployment pipeline using AWS native services
+            integrated with GitHub.
+            This project demonstrates end-to-end DevOps automation, serverless architecture, and secure global delivery
+            — all built within the AWS Free Tier.</p>
+
+        <h2>Features</h2>
+        <ul>
+            <li>Continuous Deployment: Automatic deployment from GitHub → AWS S3 on every push to the main branch via
+                AWS CodePipeline.</li>
+            <li>Zero Downtime Delivery: Uses Amazon S3 static hosting with version-safe rollbacks.</li>
+            <li>Global Performance: Integrated Amazon CloudFront CDN to cache assets globally and serve the site over
+                HTTPS with minimal latency.</li>
+            <li>Smart Cache Invalidation: An AWS Lambda function automatically invalidates CloudFront cache whenever new
+                content is deployed.</li>
+            <li>Event-Driven Automation: Amazon EventBridge triggers the Lambda upon CodePipeline SUCCEEDED events — a
+                100% serverless CI/CD flow.</li>
+            <li>Secure Integration: GitHub connected using AWS CodeStar Connections, ensuring secret-free deployments
+                without exposing credentials.
+            <li>Cost-Effective: Utilizes AWS Free Tier services, with no additional costs for static hosting or CDN.
+            </li>
+            </li>
+        </ul>
+        <h2>Tech Stack:</h2>
+        <ul>
+            <li>AWS: S3 · CloudFront · CodePipeline · Lambda · EventBridge · CodeStar Connections, API Gateway, SES</li>
+            <li>Frontend: HTML · CSS · JavaScript · jQuery (Chronark-style responsive design)</li>
+            <li>DevOps Tools: Git · GitHub Actions (optional) · CloudWatch Logs for monitoring</li>
+        </ul>
+        <h2>⚙️ Workflow Summary:</h2>
+        <ul>
+            <li>1. Developer commits changes to main in GitHub.</li>
+            <li>2. AWS CodePipeline automatically builds and deploys updated files to S3.</li>
+            <li>3. EventBridge detects pipeline success and invokes a Lambda function.</li>
+            <li>4. Lambda invalidates CloudFront cache to ensure users instantly get fresh content.</li>
+            <li>5. CloudFront globally serves the latest version through its CDN edge locations.</li>
+            <li>6. API Gateway receives the request and forwards it to the Lambda function.</li>
+            <li>7. Lambda function processes the request and sends an email using AWS SES.</li>
+            <li>8. SES sends the email to the specified recipient.</li>
+        </ul>
+        <h2>🌍 Outcome:</h2>
+        <ul>
+            <li>100% automated hosting pipeline</li>
+            <li>less than 1 min deployment latency worldwide</li>
+            <li>Zero manual intervention required</li>
+            <li>Secure, scalable, and globally distributed portfolio website.</li>
+            <li>Cost-Effective: Utilizes AWS Free Tier services, with no additional costs for static hosting or CDN.
+            </li>
+            <li>aws s3 sync - can be useful instead of codepipeline while only one user is updating files in s3 from
+                local - fast and simple</li>
+            <li>Direct email from portfolio website to owner, while staying in static website of s3 </li>
+        </ul>
+
+
+    </div>
+</div>
