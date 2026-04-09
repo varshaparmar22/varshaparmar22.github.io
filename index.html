@@ -214,9 +214,9 @@
                     "template_j8ka854",
                     this
                     ).then(function() {
-                        showMessage(result.message, 'success');
+                        alert("Email sent successfully!");
                     }, function(error) {
-                        showMessage(result.error, 'error');
+                        alert("Failed to send email. Please try again.");
                     });
                 });
                 </script>
