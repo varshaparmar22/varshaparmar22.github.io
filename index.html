@@ -186,9 +186,9 @@
             <h2 class="section-title">Send me direct Mail</h2>
             <div class="contact-methods-email-me">
                 <form id="contact-form">
-                    <input type="text" id="name" placeholder="Your Name" required><br>
-                    <input type="email" id="email" placeholder="Your Email" required><br>
-                    <textarea id="message" placeholder="Your Message" required></textarea><br>
+                    <input type="text" name="name" id="name" placeholder="Your Name" required><br>
+                    <input type="email" name="email" id="email" placeholder="Your Email" required><br>
+                    <textarea name="message" id="message" placeholder="Your Message" required></textarea><br>
                     <button type="submit">Send</button>
                 </form>
 
@@ -208,9 +208,9 @@
                     "template_j8ka854",
                     this
                     ).then(function() {
-                        alert("Message sent successfully!");
+                        showMessage(result.message, 'success');
                     }, function(error) {
-                        alert("Failed to send message");
+                        showMessage(result.error, 'error');
                     });
                 });
                 </script>
