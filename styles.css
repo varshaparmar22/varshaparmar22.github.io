@@ -334,9 +334,17 @@ img {
 }
 
 @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(56, 224, 200, 0.5); }
-    70% { box-shadow: 0 0 0 8px rgba(56, 224, 200, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(56, 224, 200, 0); }
+    0% {
+        box-shadow: 0 0 0 0 rgba(56, 224, 200, 0.5);
+    }
+
+    70% {
+        box-shadow: 0 0 0 8px rgba(56, 224, 200, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(56, 224, 200, 0);
+    }
 }
 
 .hero__title {
@@ -933,7 +941,7 @@ img {
     width: 100%;
     height: auto;
     border-radius: var(--radius);
-    border: 1px solid var(--border);
+    /* border: 1px solid var(--border); */
     margin: 1.5rem 0 2rem;
     background: #060a13;
 }
@@ -1057,20 +1065,39 @@ img {
     transform: none;
 }
 
-.reveal[data-delay="1"] { transition-delay: 0.08s; }
-.reveal[data-delay="2"] { transition-delay: 0.16s; }
-.reveal[data-delay="3"] { transition-delay: 0.24s; }
-.reveal[data-delay="4"] { transition-delay: 0.32s; }
+.reveal[data-delay="1"] {
+    transition-delay: 0.08s;
+}
+
+.reveal[data-delay="2"] {
+    transition-delay: 0.16s;
+}
+
+.reveal[data-delay="3"] {
+    transition-delay: 0.24s;
+}
+
+.reveal[data-delay="4"] {
+    transition-delay: 0.32s;
+}
 
 @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: none; }
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
 }
 
 /* =========================================================
    Responsive
    ========================================================= */
 @media (max-width: 920px) {
+
     .about,
     .contact__grid {
         grid-template-columns: 1fr;
