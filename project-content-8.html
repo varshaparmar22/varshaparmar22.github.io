@@ -1,0 +1,130 @@
+<div class="project-detail">
+    <h1 class="project-title">MeetingMind AI – Production-Grade Meeting Intelligence SaaS</h1>
+    <p class="project-meta">Technologies:
+        <span>FastAPI, PostgreSQL, SQLAlchemy, AWS S3, AWS Transcribe, Whisper, Ollama, Claude, GPT-4, AWS Bedrock,
+            Stripe, Next.js, React, Docker, GitHub Actions</span>
+    </p>
+
+    <img src="images/meeting-ai.png" alt="MeetingMind AI architecture" width="900">
+
+    <div class="project-content">
+        <h2>About the Project</h2>
+        <p>
+            <strong>MeetingMind AI</strong> is a production-grade, multi-tenant SaaS platform that turns business
+            meetings into actionable intelligence. Teams upload audio or video, and the platform automatically
+            <strong>transcribes</strong> the recording, <strong>summarizes</strong> the discussion, and
+            <strong>extracts</strong> action items, decisions, and key topics — all organized inside collaborative
+            workspaces with search and team management.
+        </p>
+        <p>
+            It is built around an async <strong>FastAPI</strong> backend with a PostgreSQL-backed job queue, a
+            provider-agnostic LLM layer, a switchable transcription engine, and full <strong>Stripe</strong> billing
+            with usage metering. The frontend is a modern <strong>Next.js / React</strong> app.
+        </p>
+
+        <h2>🧠 What It Does</h2>
+        <ul>
+            <li><strong>Transcribes</strong> meetings with OpenAI Whisper (local dev) or AWS Transcribe with speaker
+                labels (production) — switchable by a single environment flag.</li>
+            <li><strong>Summarizes</strong> discussions through a configurable LLM (Ollama, Claude, GPT-4, or Bedrock).</li>
+            <li><strong>Extracts</strong> action items, owners, deadlines, decisions, and key topics into structured
+                data.</li>
+            <li><strong>Organizes</strong> meetings in multi-tenant workspaces with role-based team collaboration.</li>
+            <li><strong>Meters &amp; bills</strong> usage with Stripe subscriptions and plan-limit enforcement.</li>
+        </ul>
+
+        <h2>⚙️ Tech Stack</h2>
+        <ul>
+            <li><strong>Backend:</strong> FastAPI, Uvicorn, SQLAlchemy 2.0, Alembic, JWT (python-jose), bcrypt</li>
+            <li><strong>Data:</strong> PostgreSQL 16 — users, workspaces, members, meetings, subscriptions, async job
+                queue, cost &amp; transcript cache tables</li>
+            <li><strong>Storage:</strong> AWS S3 (audio/video) with a disk-backed local-storage fallback for dev</li>
+            <li><strong>Transcription:</strong> Whisper (local / OpenAI API) and AWS Transcribe, behind a factory chosen
+                via <code>TRANSCRIPTION_SERVICE</code></li>
+            <li><strong>LLM Layer:</strong> a provider abstraction (<code>BaseLLMProvider</code> + <code>LLMFactory</code>)
+                over Ollama (llama3.1, free local default), Claude, OpenAI GPT-4/3.5, and AWS Bedrock</li>
+            <li><strong>Billing:</strong> Stripe — Checkout, Customer Portal, signature-verified webhooks, currency-aware
+                pricing (USD/INR)</li>
+            <li><strong>Frontend:</strong> Next.js + React, Tailwind, React Query, Zustand, react-hook-form + Zod,
+                TypeScript</li>
+            <li><strong>DevOps:</strong> Docker (lean python:3.12-slim image), Docker Compose, GitHub Actions CI/CD, AWS
+                ECR, EC2 + RDS, slowapi rate limiting, Pytest (90 tests)</li>
+        </ul>
+
+        <h2>🔍 System Architecture</h2>
+        <ul>
+            <li><strong>User layer (Next.js):</strong> auth, meeting upload, dashboard, and workspace management talk to
+                the API over HTTPS with JWT access/refresh tokens.</li>
+            <li><strong>API layer (FastAPI):</strong> versioned <code>/api/v1</code> routes for auth, workspaces,
+                members, meetings, and billing — workspace-scoped via an <code>X-Workspace-ID</code> header.</li>
+            <li><strong>Service &amp; data-access layer:</strong> Auth, Workspace, Meeting, S3, Job Queue, and Worker
+                services backed by clean repositories.</li>
+            <li><strong>Data &amp; external layer:</strong> PostgreSQL, AWS S3, the transcription engines, and the LLM
+                providers.</li>
+        </ul>
+
+        <h2>🔄 Meeting Processing Pipeline</h2>
+        <ul>
+            <li>1. <strong>Upload</strong> — validate format (mp3, wav, m4a, mp4), create the meeting record, store in
+                S3.</li>
+            <li>2. <strong>Queue</strong> — insert a job into the PostgreSQL <code>async_jobs</code> table (no Redis
+                needed).</li>
+            <li>3. <strong>Process</strong> — a background worker polls every 5 seconds and marks the job running.</li>
+            <li>4. <strong>Transcribe</strong> — the factory selects Whisper or AWS Transcribe; a SHA256 transcript
+                cache avoids re-paying for identical audio (~20–30% savings).</li>
+            <li>5. <strong>Summarize</strong> — the LLM returns a summary, action items, and key topics, parsed
+                tolerantly to survive model quirks.</li>
+            <li>6. <strong>Complete</strong> — results are saved and the meeting status flips to completed (typically
+                1–15 minutes end-to-end).</li>
+        </ul>
+
+        <h2>👥 Multi-Tenancy &amp; Billing</h2>
+        <ul>
+            <li><strong>Workspaces &amp; roles:</strong> owner / admin / member RBAC — members view, admins manage
+                members and settings, and the last owner can never be demoted or removed.</li>
+            <li><strong>Subscription tiers:</strong> Free (5 meetings/mo, 500&nbsp;MB), Pro, Business, and Enterprise —
+                each with monthly meeting and storage limits.</li>
+            <li><strong>Enforcement:</strong> uploads check plan limits and return <strong>HTTP 402</strong> with an
+                upgrade prompt when exceeded.</li>
+            <li><strong>Stripe sync:</strong> webhooks keep the <code>subscriptions</code> table in step with Checkout
+                and Portal events.</li>
+        </ul>
+
+        <h2>🔬 Key Technical Achievements</h2>
+        <ul>
+            <li>🧩 <strong>Pluggable engines</strong> — one interface over four LLM providers and two transcription
+                backends, switchable per environment with zero code changes.</li>
+            <li>🧵 <strong>Redis-free job queue</strong> — durable async processing built directly on PostgreSQL with a
+                polling worker and proper failure states.</li>
+            <li>💳 <strong>Tested Stripe billing</strong> — end-to-end Checkout → subscription → webhook sync verified
+                against a live test account, including India RBI e-mandate handling and INR pricing.</li>
+            <li>💰 <strong>Cost optimization</strong> — transcript caching, tiered model usage, and Claude-over-GPT-4
+                summaries cut summary costs up to ~87% (~$1,300+ projected annual savings).</li>
+            <li>🧪 <strong>Quality gates</strong> — a 90-test Pytest suite, per-endpoint rate limiting, and a 4-stage
+                GitHub Actions pipeline (lint → test → ECR push → EC2 deploy).</li>
+        </ul>
+
+        <h2>🌟 Outcome</h2>
+        <ul>
+            <li>Delivered a billable, multi-tenant meeting-intelligence platform with auth, workspaces, processing, and
+                subscriptions.</li>
+            <li>Designed for flexible cost/privacy trade-offs through hybrid cloud and fully local (Ollama + Whisper)
+                processing.</li>
+            <li>Shipped reproducible infrastructure: containerized, CI/CD-driven, and deployable to AWS.</li>
+            <li>Targets &lt;10&nbsp;min processing, &lt;2&nbsp;s retrieval, and &lt;$0.60 per transcribed hour.</li>
+        </ul>
+
+        <h2>💡 What This Project Demonstrates</h2>
+        <ul>
+            <li>End-to-end ownership of a real SaaS: API design, data modelling, async workers, billing, and deployment.</li>
+            <li>Designing multi-provider AI systems with clean abstractions and graceful fallbacks.</li>
+            <li>Building billable infrastructure with metering, RBAC, and subscription enforcement.</li>
+            <li>Production discipline — testing, rate limiting, containerization, and CI/CD from the start.</li>
+        </ul>
+
+        <p class="project-summary">
+            MeetingMind AI showcases full-stack AI platform engineering — orchestrating transcription and LLM services
+            behind a tested, billable, infrastructure-as-code SaaS backend with a modern React frontend.
+        </p>
+    </div>
+</div>
