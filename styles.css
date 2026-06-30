@@ -941,7 +941,7 @@ img {
     width: 100%;
     height: auto;
     border-radius: var(--radius);
-    /* border: 1px solid var(--border); */
+    border: 1px solid var(--border);
     margin: 1.5rem 0 2rem;
     background: #060a13;
 }
