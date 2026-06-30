@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img"><defs>
+  <linearGradient id="bg5" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#0b1122"/><stop offset="1" stop-color="#070b15"/></linearGradient>
+  <linearGradient id="acc5" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#38e0c8"/><stop offset="1" stop-color="#4d8dff"/></linearGradient>
+  <radialGradient id="gl5" cx="0.5" cy="0.46" r="0.5">
+    <stop offset="0" stop-color="#4d8dff" stop-opacity="0.18"/><stop offset="1" stop-color="#4d8dff" stop-opacity="0"/></radialGradient>
+</defs>
+<style>
+  .gs { stroke:url(#acc5); stroke-width:3.2; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+  .gd { stroke:#6f87b5; stroke-opacity:.5; stroke-width:2.4; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+  .gf { fill:url(#acc5); } .gfd { fill:#6f87b5; fill-opacity:.5; }
+  .cat { font-family:'JetBrains Mono', ui-monospace, monospace; font-size:13px; fill:#38e0c8; letter-spacing:1.2px; }
+  .spin { animation:spin 14s linear infinite; }
+  .travel { animation:travel 4.5s ease-in-out infinite; }
+  .draw { stroke-dasharray:240; stroke-dashoffset:240; animation:draw 5s ease-in-out infinite; }
+  .pulse { animation:pulse 3s ease-out infinite; transform-origin:center; }
+  .tw { animation:tw 3.4s ease-in-out infinite; }
+  .bar { transform-box:fill-box; transform-origin:bottom; animation:wave 1.8s ease-in-out infinite; }
+  .flo { animation:flo 6s ease-in-out infinite; }
+  @keyframes spin { to { transform:rotate(360deg); } }
+  @keyframes travel { 0%,100%{transform:translateX(0)} 50%{transform:translateX(232px)} }
+  @keyframes draw { 0%{stroke-dashoffset:240} 55%,100%{stroke-dashoffset:0} }
+  @keyframes pulse { 0%{transform:scale(.7);opacity:.7} 70%,100%{transform:scale(1.5);opacity:0} }
+  @keyframes tw { 0%,100%{opacity:.3} 50%{opacity:1} }
+  @keyframes wave { 0%,100%{transform:scaleY(.42)} 50%{transform:scaleY(1)} }
+  @keyframes flo { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+  @media (prefers-reduced-motion:reduce){ *{animation:none!important} .draw{stroke-dashoffset:0} }
+</style><rect width="640" height="360" fill="url(#bg5)"/><rect width="640" height="360" fill="url(#gl5)"/><line x1="256" y1="176" x2="301" y2="97" stroke="#5a7bb0" stroke-opacity=".08" stroke-width="1"/><line x1="268" y1="63" x2="232" y2="94" stroke="#5a7bb0" stroke-opacity=".08" stroke-width="1"/><line x1="268" y1="63" x2="321" y2="121" stroke="#5a7bb0" stroke-opacity=".08" stroke-width="1"/><line x1="100" y1="146" x2="87" y2="80" stroke="#5a7bb0" stroke-opacity=".08" stroke-width="1"/><line x1="87" y1="80" x2="99" y2="123" stroke="#5a7bb0" stroke-opacity=".08" stroke-width="1"/><line x1="353" y1="253" x2="302" y2="206" stroke="#5a7bb0" stroke-opacity=".08" stroke-width="1"/><line x1="353" y1="253" x2="347" y2="249" stroke="#5a7bb0" stroke-opacity=".08" stroke-width="1"/><line x1="412" y1="266" x2="347" y2="249" stroke="#5a7bb0" stroke-opacity=".08" stroke-width="1"/><line x1="301" y1="97" x2="302" y2="206" stroke="#5a7bb0" stroke-opacity=".08" stroke-width="1"/><line x1="301" y1="97" x2="321" y2="121" stroke="#5a7bb0" stroke-opacity=".08" stroke-width="1"/><circle class="tw" style="animation-delay:0.3s" cx="256" cy="176" r="1.8" fill="#7fb4d8" fill-opacity=".3"/><circle cx="268" cy="63" r="1.3" fill="#7fb4d8" fill-opacity=".3"/><circle cx="232" cy="94" r="1.8" fill="#7fb4d8" fill-opacity=".3"/><circle class="tw" style="animation-delay:2.8s" cx="580" cy="115" r="1.8" fill="#7fb4d8" fill-opacity=".3"/><circle cx="100" cy="146" r="1.8" fill="#7fb4d8" fill-opacity=".3"/><circle cx="87" cy="80" r="1.3" fill="#7fb4d8" fill-opacity=".3"/><circle class="tw" style="animation-delay:2.2s" cx="353" cy="253" r="1.3" fill="#7fb4d8" fill-opacity=".3"/><circle cx="160" cy="297" r="1.3" fill="#7fb4d8" fill-opacity=".3"/><circle cx="412" cy="266" r="1.3" fill="#7fb4d8" fill-opacity=".3"/><circle class="tw" style="animation-delay:2.1s" cx="301" cy="97" r="1.3" fill="#7fb4d8" fill-opacity=".3"/><circle cx="302" cy="206" r="1.8" fill="#7fb4d8" fill-opacity=".3"/><circle cx="321" cy="121" r="1.3" fill="#7fb4d8" fill-opacity=".3"/><circle class="tw" style="animation-delay:2.6s" cx="347" cy="249" r="1.8" fill="#7fb4d8" fill-opacity=".3"/><circle cx="99" cy="123" r="1.3" fill="#7fb4d8" fill-opacity=".3"/><text class="cat" x="26" y="40">Cloud · DevOps</text><circle cx="178" cy="186" r="13" class="gs"/><circle cx="178" cy="186" r="4" class="gf"/>
+        <line x1="192" y1="186" x2="408" y2="186" class="gd"/>
+        <path d="M250 178 l9 8 l-9 8 M300 178 l9 8 l-9 8 M350 178 l9 8 l-9 8" class="gd"/>
+        <g class="travel"><circle cx="196" cy="186" r="6" class="gf"/></g>
+        <path d="M438 200 a26 26 0 0 1 4 -51 a30 30 0 0 1 56 8 a22 22 0 0 1 -4 43 z" class="gs"/>
+        <ellipse cx="466" cy="176" rx="20" ry="20" class="gd"/><path d="M446 176 h40 M466 156 q14 20 0 40 q-14 -20 0 -40" class="gd"/></svg>

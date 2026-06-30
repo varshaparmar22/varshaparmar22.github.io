@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thumbnail preview — Varsha Parmar</title>
+<style>
+  body { margin:0; background:#0a0e1a; color:#e8edf7;
+         font-family:'JetBrains Mono',ui-monospace,monospace; padding:3rem 1.5rem; }
+  h1 { font-weight:600; font-size:1.2rem; text-align:center; margin:0 0 .4rem; }
+  p.note { text-align:center; color:#97a4bf; font-size:.85rem; margin:0 0 2.5rem; }
+  .grid { max-width:1100px; margin:0 auto; display:grid;
+          grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:1.6rem; }
+  .frame { border:1px solid rgba(255,255,255,.1); border-radius:14px; overflow:hidden;
+           background:#111827; }
+  .frame img { display:block; width:100%; aspect-ratio:16/9; object-fit:cover;
+               border-bottom:1px solid rgba(255,255,255,.08); }
+  .frame span { display:block; padding:.7rem 1rem; font-size:.8rem; color:#97a4bf; }
+</style>
+</head>
+<body>
+  <h1>Project thumbnails — live preview</h1>
+  <p class="note">Service-constellation thumbnails. Chips drift gently; hover does nothing here — this is just a contact sheet.</p>
+  <div class="grid">
+    <div class="frame"><img src="images/thumb-8.svg" alt=""><span>8 · MeetingMind AI</span></div>
+    <div class="frame"><img src="images/thumb-7.svg" alt=""><span>7 · WhatsApp Healthcare Assistant</span></div>
+    <div class="frame"><img src="images/thumb-4.svg" alt=""><span>4 · Serverless RAG with Cognito</span></div>
+    <div class="frame"><img src="images/thumb-2.svg" alt=""><span>2 · Financial RAG System</span></div>
+    <div class="frame"><img src="images/thumb-3.svg" alt=""><span>3 · Serverless Notes App</span></div>
+    <div class="frame"><img src="images/thumb-5.svg" alt=""><span>5 · Automated Static Site (CI/CD)</span></div>
+    <div class="frame"><img src="images/thumb-6.svg" alt=""><span>6 · WorkMail Signature Automation</span></div>
+    <div class="frame"><img src="images/thumb-1.svg" alt=""><span>1 · Airtable Contractor Automation</span></div>
+  </div>
+</body>
+</html>

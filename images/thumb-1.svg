@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img"><defs>
+  <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#0b1122"/><stop offset="1" stop-color="#070b15"/></linearGradient>
+  <linearGradient id="acc1" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#38e0c8"/><stop offset="1" stop-color="#4d8dff"/></linearGradient>
+  <radialGradient id="gl1" cx="0.5" cy="0.46" r="0.5">
+    <stop offset="0" stop-color="#4d8dff" stop-opacity="0.18"/><stop offset="1" stop-color="#4d8dff" stop-opacity="0"/></radialGradient>
+</defs>
+<style>
+  .gs { stroke:url(#acc1); stroke-width:3.2; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+  .gd { stroke:#6f87b5; stroke-opacity:.5; stroke-width:2.4; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+  .gf { fill:url(#acc1); } .gfd { fill:#6f87b5; fill-opacity:.5; }
+  .cat { font-family:'JetBrains Mono', ui-monospace, monospace; font-size:13px; fill:#38e0c8; letter-spacing:1.2px; }
+  .spin { animation:spin 14s linear infinite; }
+  .travel { animation:travel 4.5s ease-in-out infinite; }
+  .draw { stroke-dasharray:240; stroke-dashoffset:240; animation:draw 5s ease-in-out infinite; }
+  .pulse { animation:pulse 3s ease-out infinite; transform-origin:center; }
+  .tw { animation:tw 3.4s ease-in-out infinite; }
+  .bar { transform-box:fill-box; transform-origin:bottom; animation:wave 1.8s ease-in-out infinite; }
+  .flo { animation:flo 6s ease-in-out infinite; }
+  @keyframes spin { to { transform:rotate(360deg); } }
+  @keyframes travel { 0%,100%{transform:translateX(0)} 50%{transform:translateX(232px)} }
+  @keyframes draw { 0%{stroke-dashoffset:240} 55%,100%{stroke-dashoffset:0} }
+  @keyframes pulse { 0%{transform:scale(.7);opacity:.7} 70%,100%{transform:scale(1.5);opacity:0} }
+  @keyframes tw { 0%,100%{opacity:.3} 50%{opacity:1} }
+  @keyframes wave { 0%,100%{transform:scaleY(.42)} 50%{transform:scaleY(1)} }
+  @keyframes flo { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+  @media (prefers-reduced-motion:reduce){ *{animation:none!important} .draw{stroke-dashoffset:0} }
+</style><rect width="640" height="360" fill="url(#bg1)"/><rect width="640" height="360" fill="url(#gl1)"/><line x1="399" y1="257" x2="468" y2="270" stroke="#5a7bb0" stroke-opacity=".08" stroke-width="1"/><line x1="418" y1="122" x2="448" y2="141" stroke="#5a7bb0" stroke-opacity=".08" stroke-width="1"/><line x1="418" y1="122" x2="487" y2="32" stroke="#5a7bb0" stroke-opacity=".08" stroke-width="1"/><line x1="448" y1="141" x2="413" y2="141" stroke="#5a7bb0" stroke-opacity=".08" stroke-width="1"/><line x1="308" y1="174" x2="252" y2="190" stroke="#5a7bb0" stroke-opacity=".08" stroke-width="1"/><line x1="308" y1="174" x2="413" y2="141" stroke="#5a7bb0" stroke-opacity=".08" stroke-width="1"/><circle class="tw" style="animation-delay:1.8s" cx="399" cy="257" r="1.8" fill="#7fb4d8" fill-opacity=".3"/><circle cx="418" cy="122" r="1.8" fill="#7fb4d8" fill-opacity=".3"/><circle cx="324" cy="47" r="1.8" fill="#7fb4d8" fill-opacity=".3"/><circle class="tw" style="animation-delay:0.6s" cx="448" cy="141" r="1.3" fill="#7fb4d8" fill-opacity=".3"/><circle cx="308" cy="174" r="1.8" fill="#7fb4d8" fill-opacity=".3"/><circle cx="468" cy="270" r="1.8" fill="#7fb4d8" fill-opacity=".3"/><circle class="tw" style="animation-delay:2.7s" cx="256" cy="62" r="1.8" fill="#7fb4d8" fill-opacity=".3"/><circle cx="362" cy="174" r="1.8" fill="#7fb4d8" fill-opacity=".3"/><circle cx="252" cy="190" r="1.8" fill="#7fb4d8" fill-opacity=".3"/><circle class="tw" style="animation-delay:2.8s" cx="565" cy="50" r="1.3" fill="#7fb4d8" fill-opacity=".3"/><circle cx="27" cy="231" r="1.3" fill="#7fb4d8" fill-opacity=".3"/><circle cx="413" cy="141" r="1.3" fill="#7fb4d8" fill-opacity=".3"/><circle class="tw" style="animation-delay:1.6s" cx="359" cy="297" r="1.3" fill="#7fb4d8" fill-opacity=".3"/><circle cx="487" cy="32" r="1.3" fill="#7fb4d8" fill-opacity=".3"/><text class="cat" x="26" y="40">Automation · LLM</text><g class="flo">
+        <rect x="218" y="106" width="184" height="150" rx="12" class="gd"/>
+        <line x1="218" y1="142" x2="402" y2="142" class="gd"/>
+        <line x1="218" y1="180" x2="402" y2="180" class="gd"/>
+        <line x1="290" y1="106" x2="290" y2="256" class="gd"/>
+        <rect x="226" y="186" width="168" height="32" rx="7" class="gs"/>
+        <circle cx="372" cy="202" r="10" class="gs"/>
+        <path d="M367 202 l4 4 l6 -8" class="gs"/></g>
+        <path d="M420 96 l5 12 l12 5 l-12 5 l-5 12 l-5 -12 l-12 -5 l12 -5 z" class="gf tw"/></svg>

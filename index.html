@@ -1,498 +1,1505 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Varsha Parmar - AI/ML Engineer | AWS Certified</title>
+    <title>Varsha Parmar — AI/ML Engineer & AWS Certified</title>
+    <meta name="description"
+        content="Varsha Parmar — AI/ML Engineer. I design and ship production-grade AI systems on AWS: RAG assistants, multi-agent workflows, and fully serverless, Terraform-managed infrastructure.">
+    <meta name="author" content="Varsha Parmar">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Varsha Parmar — AI/ML Engineer & AWS Certified">
+    <meta property="og:description"
+        content="Production-grade AI systems on AWS — RAG, agents, and serverless infrastructure-as-code.">
+    <meta property="og:type" content="website">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
+
+    <!-- Inline SVG favicon: a connected-node mark -->
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0e1a'/%3E%3Cg stroke='%2338e0c8' stroke-width='1.6'%3E%3Cline x1='8' y1='10' x2='16' y2='16'/%3E%3Cline x1='24' y1='9' x2='16' y2='16'/%3E%3Cline x1='10' y1='24' x2='16' y2='16'/%3E%3C/g%3E%3Cg fill='%234d8dff'%3E%3Ccircle cx='8' cy='10' r='2.4'/%3E%3Ccircle cx='24' cy='9' r='2.4'/%3E%3Ccircle cx='10' cy='24' r='2.4'/%3E%3C/g%3E%3Ccircle cx='16' cy='16' r='3' fill='%2338e0c8'/%3E%3C/svg%3E">
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" id="home" class="logo">Varsha Parmar</a>
-            <div class="nav-links">
-                <a href="#projects">Projects</a>
+    <!-- ===== NAV ===== -->
+    <nav class="nav" id="nav">
+        <div class="container nav__inner">
+            <a href="#top" class="nav__logo" data-home>
+                <span class="nav__logo-mark" aria-hidden="true"></span>
+                Varsha Parmar
+            </a>
+
+            <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+
+            <div class="nav__links" id="navLinks">
+                <a href="#work">Work</a>
+                <a href="#stack">Stack</a>
+                <a href="#about">About</a>
                 <a href="#contact">Contact</a>
-                <a href="#email-me">Email Me</a>
+                <a href="https://github.com/varshaparmar22/My-Projects" target="_blank" rel="noopener"
+                    class="nav__cta">GitHub <i class="fas fa-arrow-up-right-from-square"></i></a>
             </div>
         </div>
     </nav>
-    <!-- Hidden message box -->
-    <div id="message-box">
-        <button class="close-btn">&times;</button>
+
+    <!-- Toast / message box -->
+    <div id="message-box" role="status" aria-live="polite">
         <span id="message-text"></span>
+        <button class="message-box__close" aria-label="Dismiss">&times;</button>
     </div>
-    <header id="hero" class="hero section">
-        <div class="container">
-            <h1>Varsha Parmar </h1>
-            <h2>AI/ML Engineer & AWS Certified Professional </h2>
-            <div class="hero-links">
-                <a href="https://github.com/varshaparmar22/My-Projects" target="_blank" class="social-link">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-                <a href="https://www.linkedin.com/in/varsha-parmar-b55782296/" target="_blank" class="social-link">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-                <a href="https://www.credly.com/badges/4a1fa7ec-83ec-431d-8cad-424c09fe6e33/" target="_blank"
-                    class="social-link">
-                    <i class="fas fa-certificate"></i> AWS Certified
-                </a>
+
+    <!-- ===== MAIN (scrolling portfolio) ===== -->
+    <main id="main">
+        <span id="top"></span>
+
+        <!-- HERO -->
+        <header class="hero">
+            <canvas class="hero__canvas" id="netCanvas" aria-hidden="true"></canvas>
+            <div class="hero__glow" aria-hidden="true"></div>
+
+            <div class="container hero__inner">
+                <p class="hero__eyebrow reveal" data-delay="0">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    AI/ML Engineer · AWS Certified · Cloud Expert
+                </p>
+
+                <h1 class="hero__title reveal" data-delay="1">
+                    I build <span class="grad">intelligent systems</span><br>
+                    that run on the cloud.
+                </h1>
+
+                <p class="hero__lede reveal" data-delay="2">
+                    I design and ship production-grade AI on AWS — retrieval-augmented assistants,
+                    multi-agent workflows, and fully serverless, Terraform-managed infrastructure.
+                    Secure by default, observable, and cheap to run at scale.
+                </p>
+
+                <div class="hero__actions reveal" data-delay="3">
+                    <a href="#work" class="btn btn--primary">View my work</a>
+                    <a href="#contact" class="btn btn--ghost">Get in touch</a>
+                </div>
+
+                <div class="hero__meta reveal" data-delay="4">
+                    <a href="https://github.com/varshaparmar22/My-Projects" target="_blank" rel="noopener"
+                        class="hero__link"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/varsha-parmar-b55782296/" target="_blank" rel="noopener"
+                        class="hero__link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://www.credly.com/badges/4a1fa7ec-83ec-431d-8cad-424c09fe6e33/" target="_blank"
+                        rel="noopener" class="hero__link hero__badge">
+                        <img src="images/aws-cert.png" alt="" width="26" height="26">
+                        AWS Certified — ML Engineer Associate
+                    </a>
+                </div>
             </div>
-            <br />
-            <img src="images/aws-cert.png" alt="favicon" width="190" height="190">
-        </div>
-    </header>
-    <!-- Project Detail Container (STATIC) -->
-    <div id="project-container" style="display:none; opacity:0;">
-        <!-- project-content-X.html will be injected here -->
-    </div>
-    <section id="projects" class="section" style="display: none; opacity: 0;">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
-                <a href="#" class="project-card" data-project="7" data-project-id="7">
-                    <h3>AI-Powered WhatsApp Healthcare Assistant</h3>
-                    <p>A multilingual, serverless healthcare chatbot built on AWS Lambda and DynamoDB, featuring LLM-based agent routing, secure sandboxed document processing, and event-driven conversation state management for scalable appointment booking, medical Q&A, and report summarization via WhatsApp.</p>
-                    <div class="project-tags">
-                        <span>AWS Lambda</span>
-                        <span>DynamoDB</span>
-                        <span>LangGraph</span>
-                        <span>LLM</span>
-                        <span>WhatsApp API</span>
-                        <span>Serverless</span>
-                    </div>
-                </a>
-                <a href="#" class="project-card" data-project="4">
-                    <h3>Serverless RAG with Cognito</h3>
-                    <p>A serverless RAG chatbot powered by AWS Bedrock and Pinecone, featuring secure authentication via
-                        Cognito and seamless document-based knowledge retrieval, all deployed with Terraform for
-                        infrastructure as code.</p>
-                    <div class="project-tags">
-                        <span>Bedrock</span>
-                        <span>Cognito</span>
-                        <span>Secret Manager</span>
-                        <span>API Gateway</span>
-                        <span>Lambda</span>
-                        <span>PineCone</span>
-                    </div>
-                </a>
-                <a href="#" class="project-card" data-project="6">
-                    <h3>AWS WorkMail Signature Automation</h3>
-                    <p>A serverless Proof of Concept that automatically appends professional email signatures to
-                        outgoing emails using Amazon WorkMail and AWS Lambda, with centralized signature management
-                        via S3 and Terraform-based infrastructure.</p>
-                    <div class="project-tags">
-                        <span>WorkMail</span>
-                        <span>Lambda</span>
-                        <span>S3</span>
-                        <span>Terraform</span>
-                    </div>
-                </a>
-                <a href="#" class="project-card" data-project="2" data-project-id="2">
-                    <h3>Financial RAG System</h3>
-                    <p>Built a multilingual RAG pipeline that analyzes Apple’s financial reports using LangChain,
-                        Qdrant, and OpenAI embeddings. The system provides accurate financial Q&A with reranking and
-                        RAGAS evaluation, delivered through a clean, interactive Streamlit interface.
+        </header>
+
+        <!-- STAT STRIP -->
+        <section class="stats" aria-label="At a glance">
+            <div class="container stats__grid">
+                <div class="stat reveal">
+                    <span class="stat__num">Cloud</span>
+                    <span class="stat__label">AWS · GCP · Azure</span>
+                </div>
+                <div class="stat reveal" data-delay="1">
+                    <span class="stat__num">RAG · Agents</span>
+                    <span class="stat__label">LLM systems with evaluation</span>
+                </div>
+                <div class="stat reveal" data-delay="2">
+                    <span class="stat__num">Serverless</span>
+                    <span class="stat__label">Lambda-first architecture</span>
+                </div>
+                <div class="stat reveal" data-delay="3">
+                    <span class="stat__num">IaC</span>
+                    <span class="stat__label">Terraform &amp; CI/CD</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="section" id="work">
+            <div class="container">
+                <div class="section__head reveal">
+                    <h2 class="section__title">Case studies</h2>
+                    <p class="section__sub">
+                        Eight systems I designed and shipped — each one is a self-contained breakdown
+                        of the architecture, the trade-offs, and the outcome.
                     </p>
-                    <div class="project-tags">
-                        <span>LangChain</span>
-                        <span>RAG</span>
-                        <span>OpenAI</span>
-                        <span>Cohere</span>
-                        <span>Qdrant</span>
-                        <span>Streamlit</span>
-                    </div>
-                </a>
-                <a href="#" class="project-card" data-project="3" data-project-id="3">
-                    <h3>Note-App - Serverless Web Application</h3>
-                    <p>Note-App is a secure, serverless note-taking web app built on AWS using S3, API Gateway, Lambda,
-                        Cognito, and DynamoDB. It lets users create, edit, and manage notes seamlessly with fast
-                        performance and zero server maintenance.</p>
-                    <div class="project-tags">
-                        <span>S3</span>
-                        <span>API Gateway</span>
-                        <span>Lambda</span>
-                        <span>Cognito</span>
-                        <span>DynamoDB</span>
-                        <span>HTML</span>
-                        <span>JS</span>
-                        <span>CSS</span>
-                        <span>CloudFront</span>
-                    </div>
-                </a>
+                </div>
 
-                <a href="#" class="project-card" data-project="5" data-project-id="5">
-                    <h3>AWS Cloud Portfolio - Automated Static Website Deployment (CI/CD + CloudFront)</h3>
-                    <p>Designed and implemented a fully automated static website deployment pipeline using AWS native
-                        services integrated with GitHub.</p>
-                    <div class="project-tags">
-                        <span>S3</span>
-                        <span>API Gateway</span>
-                        <span>Lambda</span>
-                        <span>DynamoDB</span>
-                        <span>CI/CD</span>
-                        <span>CloudFront</span>
-                        <span>GitHub</span>
-                        <span>HTML</span>
-                        <span>JS</span>
-                        <span>CSS</span>
+                <div class="work-grid">
+                    <a href="#" class="work-card reveal" data-project="7">
+                        <div class="work-card__thumb">
+                            <img src="images/thumb-7.svg" alt="WhatsApp Healthcare Assistant illustration"
+                                loading="lazy">
+                        </div>
+                        <div class="work-card__body">
+                            <h3>AI WhatsApp Healthcare Assistant</h3>
+                            <p>Multilingual, serverless healthcare chatbot on AWS Lambda + DynamoDB with
+                                LangGraph agent routing, sandboxed document processing, and event-driven
+                                conversation state.</p>
+                            <div class="tags">
+                                <span>AWS
+                                    Lambda</span><span>DynamoDB</span><span>LangGraph</span><span>LLM</span><span>WhatsApp
+                                    API</span>
+                            </div>
+                            <span class="work-card__more">Read case study <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <a href="#" class="work-card reveal" data-delay="1" data-project="4">
+                        <div class="work-card__thumb">
+                            <img src="images/thumb-4.svg" alt="Serverless RAG illustration" loading="lazy">
+                        </div>
+                        <div class="work-card__body">
+                            <h3>Serverless RAG with Cognito</h3>
+                            <p>RAG chatbot powered by AWS Bedrock + Pinecone, secured with Cognito auth and
+                                provisioned end-to-end with Terraform.</p>
+                            <div class="tags">
+                                <span>Bedrock</span><span>Cognito</span><span>API
+                                    Gateway</span><span>Lambda</span><span>Pinecone</span>
+                            </div>
+                            <span class="work-card__more">Read case study <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <a href="#" class="work-card reveal" data-delay="2" data-project="8">
+                        <div class="work-card__thumb">
+                            <img src="images/thumb-8.svg" alt="MeetingMind AI illustration" loading="lazy">
+                        </div>
+                        <div class="work-card__body">
+                            <h3>MeetingMind AI</h3>
+                            <p>Multi-tenant meeting-intelligence SaaS: switchable transcription (Whisper, AWS
+                                Transcribe), a multi-provider LLM layer, Stripe usage-metered billing, and a Redis-free
+                                FastAPI job queue — shipped with tests, Docker, and CI/CD.</p>
+                            <div class="tags">
+                                <span>FastAPI</span><span>PostgreSQL</span><span>AWS
+                                    Transcribe</span><span>Stripe</span><span>Next.js</span>
+                            </div>
+                            <span class="work-card__more">Read case study <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <a href="#" class="work-card reveal" data-project="2">
+                        <div class="work-card__thumb">
+                            <img src="images/thumb-2.svg" alt="Financial RAG system illustration" loading="lazy">
+                        </div>
+                        <div class="work-card__body">
+                            <h3>Financial RAG System</h3>
+                            <p>Multilingual RAG pipeline over Apple's financial reports using LangChain, Qdrant,
+                                and OpenAI embeddings — reranked, RAGAS-evaluated, served via Streamlit.</p>
+                            <div class="tags">
+                                <span>LangChain</span><span>Qdrant</span><span>OpenAI</span><span>Cohere</span><span>RAGAS</span>
+                            </div>
+                            <span class="work-card__more">Read case study <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <a href="#" class="work-card reveal" data-delay="1" data-project="3">
+                        <div class="work-card__thumb">
+                            <img src="images/thumb-3.svg" alt="Serverless Notes App illustration" loading="lazy">
+                        </div>
+                        <div class="work-card__body">
+                            <h3>Serverless Notes App</h3>
+                            <p>Secure note-taking app on S3 + CloudFront, API Gateway, Lambda, Cognito and DynamoDB —
+                                fast, pay-per-use, and zero server maintenance.</p>
+                            <div class="tags">
+                                <span>S3</span><span>API
+                                    Gateway</span><span>Lambda</span><span>Cognito</span><span>DynamoDB</span>
+                            </div>
+                            <span class="work-card__more">Read case study <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <a href="#" class="work-card reveal" data-delay="2" data-project="5">
+                        <div class="work-card__thumb">
+                            <img src="images/thumb-5.svg" alt="Automated static site CI/CD illustration" loading="lazy">
+                        </div>
+                        <div class="work-card__body">
+                            <h3>Automated Static Site (CI/CD)</h3>
+                            <p>Fully automated GitHub → S3 → CloudFront deployment pipeline with event-driven cache
+                                invalidation — 100% serverless CI/CD on the AWS free tier.</p>
+                            <div class="tags">
+                                <span>CodePipeline</span><span>CloudFront</span><span>Lambda</span><span>EventBridge</span><span>SES</span>
+                            </div>
+                            <span class="work-card__more">Read case study <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <a href="#" class="work-card reveal" data-project="6">
+                        <div class="work-card__thumb">
+                            <img src="images/thumb-6.svg" alt="WorkMail signature automation illustration"
+                                loading="lazy">
+                        </div>
+                        <div class="work-card__body">
+                            <h3>WorkMail Signature Automation</h3>
+                            <p>Serverless system that injects branded email signatures on outgoing mail via Amazon
+                                WorkMail flow rules, with templates in S3 and Terraform-managed infra.</p>
+                            <div class="tags">
+                                <span>WorkMail</span><span>Lambda</span><span>S3</span><span>Terraform</span><span>IAM</span>
+                            </div>
+                            <span class="work-card__more">Read case study <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <a href="#" class="work-card reveal" data-delay="1" data-project="1">
+                        <div class="work-card__thumb">
+                            <img src="images/thumb-1.svg" alt="Airtable contractor automation illustration"
+                                loading="lazy">
+                        </div>
+                        <div class="work-card__body">
+                            <h3>Airtable Contractor Automation</h3>
+                            <p>Multi-table Airtable system with Python automation and LLM scoring that compresses,
+                                evaluates and auto-shortlists applicants — cutting manual review ~80%.</p>
+                            <div class="tags">
+                                <span>Python</span><span>Airtable</span><span>Gemini</span><span>JSON</span><span>LLMs</span>
+                            </div>
+                            <span class="work-card__more">Read case study <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- STACK -->
+        <section class="section section--alt" id="stack">
+            <div class="container">
+                <div class="section__head reveal">
+                    <h2 class="section__title">The stack I build with</h2>
+                    <p class="section__sub">Day-to-day tools across AI, cloud, and the glue that ships them to
+                        production.</p>
+                </div>
+
+                <div class="stack-grid">
+                    <div class="stack-col reveal">
+                        <h3 class="stack-col__title"><i class="fas fa-brain"></i> AI / ML &amp; GenAI</h3>
+                        <ul class="chips">
+                            <li>AWS Bedrock</li>
+                            <li>LangChain</li>
+                            <li>LangGraph</li>
+                            <li>LLMs</li>
+                            <li>GenAI</li>
+                            <li>Conversational AI</li>
+                            <li>RAG</li>
+                            <li>Agents</li>
+                            <li>Prompt Engineering</li>
+                            <li>Semantic Search</li>
+                            <li>Embedding Pipelines</li>
+                            <li>RAGAS</li>
+                        </ul>
                     </div>
-                </a>
-                <a href="#" class="project-card" data-project="1" data-project-id="1">
-                    <h3>Airtable Contractor Automation</h3>
-                    <p>Built comprehensive multi-table Airtable system with Python automation scripts and LLM evaluation
-                        for candidate analysis.</p>
-                    <div class="project-tags">
-                        <span>Python</span>
-                        <span>Airtable</span>
-                        <span>LLMs</span>
+                    <div class="stack-col reveal" data-delay="1">
+                        <h3 class="stack-col__title"><i class="fas fa-cloud"></i> Cloud &amp; Serverless</h3>
+                        <ul class="chips">
+                            <li>AWS Lambda</li>
+                            <li>API Gateway</li>
+                            <li>EC2</li>
+                            <li>S3</li>
+                            <li>Cognito</li>
+                            <li>IAM</li>
+                            <li>ECR</li>
+                            <li>Textract</li>
+                            <li>Comprehend</li>
+                            <li>CloudFront</li>
+                            <li>EventBridge</li>
+                            <li>SES</li>
+                        </ul>
                     </div>
-                </a>
-                <!-- Add more project cards as needed -->
+                    <div class="stack-col reveal">
+                        <h3 class="stack-col__title"><i class="fas fa-code"></i> Languages &amp; Frameworks</h3>
+                        <ul class="chips">
+                            <li>Python</li>
+                            <li>TypeScript</li>
+                            <li>JavaScript</li>
+                            <li>PHP</li>
+                            <li>SQL</li>
+                            <li>FastAPI</li>
+                            <li>Next.js</li>
+                            <li>React</li>
+                            <li>Flask</li>
+                            <li>Streamlit</li>
+                            <li>REST APIs</li>
+                            <li>Microservices</li>
+                        </ul>
+                    </div>
+                    <div class="stack-col reveal" data-delay="1">
+                        <h3 class="stack-col__title"><i class="fas fa-database"></i> Databases &amp; Vector Stores</h3>
+                        <ul class="chips">
+                            <li>PostgreSQL</li>
+                            <li>MySQL</li>
+                            <li>DynamoDB</li>
+                            <li>Pinecone</li>
+                            <li>Qdrant</li>
+                            <li>ChromaDB</li>
+                            <li>FAISS</li>
+                            <li>OpenSearch</li>
+                            <li>Airtable</li>
+                        </ul>
+                    </div>
+                    <div class="stack-col reveal">
+                        <h3 class="stack-col__title"><i class="fas fa-robot"></i> AI Platforms &amp; SaaS</h3>
+                        <ul class="chips">
+                            <li>OpenAI</li>
+                            <li>Anthropic Claude</li>
+                            <li>Gemini</li>
+                            <li>Ollama</li>
+                            <li>Stripe</li>
+                            <li>Multi-tenant SaaS</li>
+                            <li>RBAC</li>
+                            <li>JWT Auth</li>
+                            <li>Rate Limiting</li>
+                            <li>React Query</li>
+                            <li>Zustand</li>
+                            <li>Tailwind CSS</li>
+                        </ul>
+                    </div>
+                    <div class="stack-col reveal" data-delay="1">
+                        <h3 class="stack-col__title"><i class="fas fa-gears"></i> DevOps, IaC &amp; Tooling</h3>
+                        <ul class="chips">
+                            <li>Terraform</li>
+                            <li>Docker</li>
+                            <li>Docker Compose</li>
+                            <li>CI/CD (GitHub Actions)</li>
+                            <li>MLOps</li>
+                            <li>LLMOps</li>
+                            <li>Pytest</li>
+                            <li>CloudWatch</li>
+                            <li>Claude Code</li>
+                            <li>Windsurf</li>
+                            <li>Twilio</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="section" id="about">
+            <div class="container about">
+                <div class="about__intro reveal">
+                    <h2 class="section__title">Engineer first, problem-solver always</h2>
+                    <p>
+                        I'm an AI/ML engineer who likes the full arc of a system — from the embedding
+                        pipeline to the IAM policy. Most of my recent work lives where AI meets cloud
+                        infrastructure: retrieval-augmented assistants, agentic LLM routing, and the
+                        secure, serverless backends that make them reliable in production.
+                    </p>
+                    <p>
+                        I'm AWS Certified (Machine Learning Engineer — Associate) and I default to
+                        infrastructure-as-code, least-privilege security, and measurable evaluation so the
+                        systems I ship can be trusted, traced, and handed off.
+                    </p>
+                </div>
+
+                <ul class="about__points reveal" data-delay="1">
+                    <li>
+                        <i class="fas fa-diagram-project"></i>
+                        <span>Build RAG &amp; agentic LLM systems with evaluation baked in (LangChain, LangGraph,
+                            Bedrock, RAGAS).</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-shield-halved"></i>
+                        <span>Architect serverless backends — Lambda, API Gateway, DynamoDB, Cognito — with
+                            least-privilege IAM.</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-terminal"></i>
+                        <span>Automate everything with Terraform &amp; CI/CD: reproducible environments from a single
+                            command.</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-gauge-high"></i>
+                        <span>Optimize for cost and latency — pay-per-use designs that scale to zero and back.</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section section--alt" id="contact">
+            <div class="container contact">
+                <div class="section__head reveal">
+                    <h2 class="section__title">Let's build something</h2>
+                    <p class="section__sub">Open to senior AI/software roles and interesting collaborations. The
+                        fastest way to reach me is a quick note below.</p>
+                </div>
+
+                <div class="contact__grid">
+                    <div class="contact__links reveal">
+                        <a href="mailto:vparmarce@gmail.com" class="contact__link">
+                            <i class="fas fa-envelope"></i>
+                            <span><strong>Email</strong>vparmarce@gmail.com</span>
+                        </a>
+                        <a href="tel:+918160756539" class="contact__link">
+                            <i class="fas fa-phone"></i>
+                            <span><strong>Phone</strong>+91 8160 756 539</span>
+                        </a>
+                        <a href="https://github.com/varshaparmar22/My-Projects" target="_blank" rel="noopener"
+                            class="contact__link">
+                            <i class="fab fa-github"></i>
+                            <span><strong>GitHub</strong>varshaparmar22</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/varsha-parmar-b55782296/" target="_blank" rel="noopener"
+                            class="contact__link">
+                            <i class="fab fa-linkedin"></i>
+                            <span><strong>LinkedIn</strong>varsha-parmar</span>
+                        </a>
+                    </div>
+
+                    <form id="contact-form" class="contact__form reveal" data-delay="1">
+                        <div class="field">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" placeholder="Your name" required>
+                        </div>
+                        <div class="field">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" placeholder="you@company.com" required>
+                        </div>
+                        <div class="field">
+                            <label for="message">Message</label>
+                            <textarea name="message" id="message" placeholder="What would you like to build?"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn--primary" id="sendBtn">
+                            <span class="btn__label">Send message</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== PROJECT DETAIL VIEW (injected) ===== -->
+    <div id="project-container" hidden></div>
+
+    <!-- Inlined case studies (no fetch needed) -->
+    <template id="proj-1">
+        <div class="project-detail">
+
+            <h1>Airtable-Based Contractor Management and LLM Evaluation System</h1>
+
+            <img src="images/airtable-2.png" alt="Mermaid Architecture Diagram" width="1200">
+
+            <div class="project-content">
+                <h2>About the Project</h2>
+                <p>Developed a fully automated recruitment intelligence system that streamlines contractor application
+                    management using Airtable, Python, and Large Language Models (LLMs).
+
+                    The system captures multi-form applicant data, compresses it into structured JSON for efficient
+                    storage, applies smart shortlist rules, and enriches each profile using an AI evaluator — all while
+                    maintaining data normalization and scalability inside Airtable.
+                </p>
+
+                <h2>Key Features and Architecture</h2>
+                <ul>
+                    <li>🧩 1. Structured Airtable Schema
+
+                        Designed a multi-table relational Airtable base linking applicants, experience, and compensation
+                        data:
+
+                        Applicants (Parent) - central record storing compressed JSON and LLM evaluation fields.
+
+                        Linked Tables - Personal Details, Work Experience, and Salary Preferences (1:1 and 1:N
+                        relationships).
+
+                        Shortlisted Leads Table - auto-generated when candidate meets selection rules.</li>
+
+                    <li>⚙️ 2. Python Automations (Local Scripts)
+
+                        Built two local automation scripts for Airtable data management:
+
+                        Compression Script: Fetches all linked data, compresses it into a single JSON payload, and
+                        writes it to the parent record.
+
+                        Decompression Script: Reads JSON and restores data back into normalized Airtable tables for easy
+                        editing.
+
+                        💡 This modular approach reduces API calls, speeds up syncing, and keeps the database structure
+                        lightweight.</li>
+
+                    <li>🎯 3. Smart Shortlisting Rules
+
+                        Implemented a multi-factor candidate evaluation engine that automatically shortlists applicants
+                        based on:
+
+                        Experience: ≥ 4 years or Tier-1 company (Google, Meta, OpenAI, etc.)
+
+                        Compensation: ≤ $100/hr and ≥ 20 hrs/week availability
+
+                        Location: US, Canada, UK, Germany, or India
+
+                        Matching applicants are automatically inserted into the Shortlisted Leads table with reasoning
+                        and metadata.</li>
+
+                    <li>🤖 4. LLM Evaluation & Enrichment
+
+                        Integrated a secure LLM API endpoint (OpenAI / Anthropic / Gemini) that analyzes each
+                        candidate’s JSON profile to:
+
+                        Generate a 75-word professional summary
+
+                        Assign a quality score (1-10)
+
+                        Detect missing or inconsistent fields
+
+                        Suggest 3 follow-up questions for recruiters
+
+                        Outputs are automatically written back into the Applicants table, enabling AI-assisted screening
+                        and insights within Airtable.</li>
+
+                    <li>🛡️ 5. Secure & Scalable Integration
+
+                        Secrets and API keys stored in environment variables or Airtable Secrets (no hardcoding).
+
+                        Retry logic with exponential backoff for failed API calls.
+
+                        Guardrails for token limits and change detection (LLM only runs when input data changes).</li>
+
+                </ul>
+
+                <h2>Technologies Used</h2>
+                <div class="project-tags">
+                    <span>Database & UI Airtable (Linked Tables, Forms, Automations)</span>
+                    <span>Backend Automation Python (Airtable API, JSON processing)</span>
+                    <span>AI Integration Gemini API</span>
+                    <span>Logic Layer Rule-based Python scripts</span>
+                    <span>Data Format Compressed JSON (nested schema)</span>
+                    <span>Deployment Local scripts, Airtable automations</span>
+                    </span>
+                </div>
+
+                <h2>📊 Workflow Summary</h2>
+                <div class="project-tags">
+
+                    <ul>
+                        <li>Applicants fill 3 forms (Personal, Experience, Salary).</li>
+                        <li>Python compresses and stores all data as JSON.</li>
+                        <li>LLM enriches and scores the application.</li>
+                        <li>Rules engine auto-shortlists qualified candidates.</li>
+                        <li>Airtable dashboard updates dynamically for recruiters.</li>
+                    </ul>
+                </div>
+
+                <h2>🌟 Outcome</h2>
+                <div class="project-tags">
+                    <ul>
+                        <li>Reduced manual review effort by 80%</li>
+                        <li>Enabled instant AI summaries and candidate scoring</li>
+                        <li>Fully no-code + low-code + AI solution — scalable, secure, and automation-first</li>
+                        <li>Perfect foundation for an AI-driven recruiting dashboard or SaaS MVP</li>
+
+                </div>
+
+                <!--<div class="project-links" style="margin-top: 2rem;">
+            <a href="https://github.com/yourusername/airtable-automation" class="button" target="_blank">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+            <a href="https://airtable-automation-demo.com" class="button" target="_blank" style="margin-left: 1rem;">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+        </div>-->
             </div>
         </div>
-    </section>
+    </template>
+    <template id="proj-2">
+        <div class="project-detail">
+            <h1>Apple Financial Documents – Retrieval-Augmented Generation System</h1>
+            <p class="project-meta">Technologies: <span>LangChain, Qdrant, OpenAI</span></p>
 
-    <section id="contact" class="section contact-section">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-methods">
-                <a href="mailto:vparmarce@gmail.com" class="contact-link">
-                    <i class="fas fa-envelope"></i> vparmarce@gmail.com
-                </a>
-                <a href="tel:+918160756539" class="contact-link">
-                    <i class="fas fa-phone"></i> +91 8160756539
-                </a>
-                <a href="https://github.com/varshaparmar22/My-Projects" target="_blank" class="contact-link">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-                <a href="https://www.linkedin.com/in/varsha-parmar-b55782296/" target="_blank" class="contact-link">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
+            <img src="images/rag.png" alt="Apple Financial Documents" width="800">
+
+            <div class="project-content">
+                <h2>About the Project</h2>
+                <p>Apple Financial Documents is a production-grade, Retrieval-Augmented Generation (RAG) system
+                    built to extract insights, summarize reports, and answer analytical questions from Apple’s annual
+                    financial
+                    statements.
+                    It combines LangChain, Qdrant Cloud, and OpenAI embeddings to deliver a high-performance,
+                    explainable, and
+                    RAG pipeline — accessible through a Streamlit web interface for real-time financial data
+                    exploration.
+                </p>
+
+                <h2>🧠 Key Objectives</h2>
+                <ul>
+                    <li>Build a RAG pipeline capable of handling 100K+ financial document records.</li>
+                    <li>Compare multiple embedding models, retrievers, and vector databases for accuracy and
+                        performance.</li>
+                    <li>Evaluate quality using RAGAS metrics (faithfulness, recall, relevance, accuracy).</li>
+                    <li>Provide interactive insights and transparent data lineage via a Streamlit dashboard.</li>
+                </ul>
+                <h2>⚙️ Tech Stack</h2>
+                <ul>
+                    <li>LLM Framework LangChain</li>
+                    <li>Vector Database Qdrant Cloud (HNSW Index)</li>
+                    <li>Embeddings OpenAI text-embedding-3-large (optimized to 1536 dimensions)</li>
+                    <li>Alternative Models Gemini embedding-001</li>
+                    <li>Reranking Cohere RerankRetriever</li>
+                    <li>Frontend / UI Streamlit (interactive RAG testing interface)</li>
+                    <li>Evaluation RAGAS Framework + Human verification</li>
+                    <li>Language Support English, German, French, Italian</li>
+                    <li>Data Processing Python (chunking, embedding batching, and pre/post-processing)</li>
+                </ul>
+                <h2>🔍 System Architecture</h2>
+                <ul>
+                    <li>1. Data Ingestion: Load and clean Apple’s financial reports (2019–2023).</li>
+                    <li>2. Preprocessing & Chunking:
+                        Use RecursiveCharacterTextSplitter for efficient context segmentation.
+                        Auto-detect token size to balance between context length and embedding cost.</li>
+                    <li>3. Embedding Generation:
+                        Initial prototypes used Gemini embeddings.
+                        Final implementation with OpenAI text-embedding-3-large for speed and accuracy.</li>
+                    <li>4. Vector Storage:
+                        Migrated from Chroma → Qdrant Cloud, enabling scalable cloud vector search with HNSW indexing.
+                        Batch embeddings for improved performance and cost control.</li>
+                    <li>5. Retrieval & Search:
+                        Baseline: VectorStoreRetriever.
+                        Enhanced: MultiQueryRetriever (5 paraphrased variants for richer context).
+                        Final: Cohere RerankRetriever for reranked semantic relevance.</li>
+                    <li>6. Evaluation & Metrics:
+                        Faithfulness, Recall, and Relevance computed using RAGAS.
+                        Manual validation of financial Q&A results for precision assurance.</li>
+                    <li>7. Frontend:
+                        Streamlit web app with Q&A panel, reference chunks, and original source URLs.</li>
+                </ul>
+                <h2>🔬 Key Technical Achievements</h2>
+                <ul>
+                    <li>📦 Processed 1.5 Lakh Financial Chunks — optimized Qdrant indexing, solved read timeout errors
+                        using
+                        batch insertions.</li>
+                    <li>🧩 Improved Retrieval Accuracy — 40% gain using MultiQueryRetriever + Cohere Reranker.</li>
+                    <li>⚙️ Embedding Optimization — reduced dimensions (3072 → 1536) for 2× faster retrieval.</li>
+                    <li>📈 Implemented RAGAS Evaluation — validated answer quality via faithfulness, recall, and
+                        relevance.</li>
+                    <li>🌐 Interactive Streamlit Dashboard — allows users to query Apple’s financial data and view
+                        contextual
+                        source snippets instantly.</li>
+                </ul>
+                <h2>🧮 Evaluation Metrics Snapshot</h2>
+                <ul>
+                    <li>Metric Description Evaluation Framework</li>
+                    <li>Faithfulness Verifies factual accuracy of generated answers RAGAS</li>
+                    <li>Relevance Measures contextual match between query and source RAGAS</li>
+                    <li>Recall Evaluates completeness of retrieved context RAGAS</li>
+                    <li>Accuracy Cross-checked via human and RAGAS evaluation RAGAS + Manual Review</li>
+                </ul>
+                <h2>🌟 Outcome</h2>
+                <ul>
+                    <li>Delivered a RAG engine capable of intelligent Q&A over Apple’s financial documents.</li>
+                    <li>Created an explainable AI dashboard for analysts to trace every response back to its source
+                        document.
+                    </li>
+                    <li>Benchmarked multiple retrievers and embeddings for optimal accuracy vs. cost trade-offs.</li>
+                    <li>Provided a scalable, modular, and production-ready RAG workflow deployable on cloud
+                        environments.</li>
+                </ul>
+                <h2>🧩 Future Enhancements</h2>
+                <ul>
+                    <li>Add cross-encoder reranking using SentenceTransformer for finer semantic relevance.</li>
+                    <li>Integrate AWS Bedrock / VertexAI for hybrid RAG inference.</li>
+                    <li>Containerize via Docker + ECS / Lambda for serverless deployment.</li>
+                </ul>
+                <h2>💡 What This Project Demonstrates</h2>
+                <ul>
+                    <li>Deep expertise in LangChain orchestration and retrieval optimization.</li>
+                    <li>Strong understanding of vector databases, embedding efficiency, and RAG evaluation metrics.</li>
+                    <li>End-to-end development from data ingestion → retrieval → LLM inference → evaluation →
+                        deployment.</li>
+                    <li>The ability to design real-world, scalable AI systems ready for enterprise adoption.</li>
+                </ul>
+
+
             </div>
         </div>
-    </section>
-    <section id="email-me" class="section contact-section">
-        <div class="container">
-            <br />
-            <h2 class="section-title">Send me direct Mail</h2>
-            <div class="contact-methods-email-me">
-                <form id="contact-form">
-                    <input type="text" name="name" id="name" placeholder="Your Name" required><br>
-                    <input type="email" name="email" id="email" placeholder="Your Email" required><br>
-                    <textarea name="message" id="message" placeholder="Your Message" required></textarea><br>
-                    <button type="submit">Send</button>
-                </form>
+    </template>
+    <template id="proj-3">
+        <div class="project-detail">
+            <h1>Serverless Notes App – Static Frontend & Lambda Backend</h1>
+            <p class="project-meta">Technologies: <span>Amazon S3, CloudFront, API Gateway, AWS Lambda, Amazon Cognito,
+                    DynamoDB</span></p>
 
-                <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-                <script>
-                    document.getElementById("clear-btn").addEventListener("click", function() {
-                        showMessage(result.message, 'success');
-                        showMessage(result.error, 'error');
-                    });
-                </script>
-                <script>
-                (function(){
-                emailjs.init("1I0-snLi3Ia01epgn");
-                })();
+            <img src="images/notes-app.png" alt="Serverless Notes App" width="900">
 
-                document.getElementById("contact-form")
-                .addEventListener("submit", function(e) {
-                    e.preventDefault();
+            <div class="project-content">
+                <h2>About the Project</h2>
+                <p>
+                    The Serverless Notes App is a lightweight, secure, and scalable web application for creating,
+                    editing,
+                    searching, and organizing personal notes. The frontend is a static single-page application hosted on
+                    Amazon S3 (served via CloudFront), while the backend is fully serverless: API Gateway routes
+                    requests to
+                    Lambda functions which implement authentication callbacks and CRUD operations. User identities and
+                    tokens
+                    are managed with Amazon Cognito and notes are persisted in DynamoDB.
+                </p>
 
-                    emailjs.sendForm(
-                    "service_oox4wku",
-                    "template_j8ka854",
-                    this
-                    ).then(function() {
-                        alert("Email sent successfully!");
-                    }, function(error) {
-                        alert("Failed to send email. Please try again.");
-                    });
-                });
-                </script>
+                <h2>🧠 Key Objectives</h2>
+                <ul>
+                    <li>Deliver a fast static-site frontend with near-zero operational overhead.</li>
+                    <li>Implement secure user authentication using Cognito and token-based access control.</li>
+                    <li>Provide a RESTful API (API Gateway + Lambda) to perform CRUD operations on notes.</li>
+                    <li>Store user notes reliably and with low-latency using DynamoDB.</li>
+                    <li>Keep costs minimal via a pay-per-use serverless design and auto-scaling components.</li>
+                </ul>
+
+                <h2>⚙️ Tech Stack</h2>
+                <ul>
+                    <li>Hosting: Amazon S3 (static website) + CloudFront (CDN / HTTPS)</li>
+                    <li>API Layer: Amazon API Gateway (REST API - Notes-Rest-Api)</li>
+                    <li>Compute: AWS Lambda (notes-api, authorize-cognito-notes-app)</li>
+                    <li>Auth: Amazon Cognito User Pool</li>
+                    <li>Database: Amazon DynamoDB (NotesTable-App) — Partition key: <code>userId</code>, Sort key:
+                        <code>noteId</code>
+                    </li>
+                    <li>CI/CD: (optional) GitHub Actions deploy to S3</li>
+                    <li>Frontend: HTML / CSS / JavaScript (Vanilla or lightweight framework)</li>
+                </ul>
+
+                <h2>🔍 System Architecture</h2>
+                <ul>
+                    <li>
+                        <strong>Frontend (S3 + CloudFront):</strong> Static SPA (HTML/CSS/JS) served from an S3 bucket
+                        (notes-app-frontend-varsha) with CloudFront for HTTPS and caching.
+                    </li>
+                    <li>
+                        <strong>Authentication:</strong> Cognito User Pool manages sign-up, sign-in, password reset,
+                        and issues JWTs for authenticated requests.
+                    </li>
+                    <li>
+                        <strong>Auth Callback:</strong> <code>/auth/callback</code> route handled by
+                        Lambda:authorize-cognito-notes-app.
+                    </li>
+                    <li>
+                        <strong>API Layer:</strong> API Gateway (Notes-Rest-Api) validates tokens (via Cognito) then
+                        forwards
+                        requests to notes-api Lambda (proxy integration).
+                    </li>
+                    <li>
+                        <strong>Data Storage:</strong> DynamoDB table NotesTable-App holds notes using composite key
+                        <code>(userId, noteId)</code> enabling efficient per-user queries.
+                    </li>
+                    <li>
+                        <strong>Typical Request Flow:</strong> Browser → CloudFront/S3 → (login via Cognito) → API
+                        Gateway →
+                        Lambda → DynamoDB → Lambda → API Gateway → Browser.
+                    </li>
+                </ul>
+
+                <h2>🧩 UI / Content Types (What the app contains)</h2>
+                <ul>
+                    <li><strong>Authentication Forms</strong>: Sign-up, Sign-in, Forgot Password, Confirm Account.</li>
+                    <li><strong>Note Editor</strong>: Rich-text or Markdown editor with live preview (Title, Body,
+                        Tags).</li>
+                    <li><strong>Note List / Dashboard</strong>: Paginated list of notes, sort by updated_at, search and
+                        filter by tags.</li>
+                    <li><strong>Note Detail View</strong>: Read-only view showing note content + metadata (created_at,
+                        updated_at).</li>
+                    <li><strong>CRUD Endpoints</strong> (API): <code>GET /notes</code>, <code>POST /notes</code>,
+                        <code>GET /notes/{id}</code>, <code>PUT /notes/{id}</code>, <code>DELETE /notes/{id}</code>.
+                    </li>
+                    <li><strong>Client-side Validation</strong>: Form validation for title length, required fields, and
+                        safe HTML sanitization.</li>
+                    <li><strong>Search</strong>: Client-side keyword search + optional server-side full-text index via
+                        DynamoDB secondary indexes (if enabled).</li>
+                    <li><strong>Offline / Sync (optional)</strong>: LocalStorage caching and background sync to support
+                        intermittent connectivity.</li>
+                    <li><strong>Settings</strong>: Profile (display name), theme (light/dark), export/import notes JSON.
+                    </li>
+                    <li><strong>Telemetry / Logging</strong>: CloudWatch logs for Lambda + basic usage metrics (API
+                        latency, errors).</li>
+                </ul>
+
+                <h2>🔬 Key Technical Achievements</h2>
+                <ul>
+                    <li>Implemented secure token-based auth with Cognito and validated tokens at API Gateway.</li>
+                    <li>Designed DynamoDB table with <code>userId</code> partitioning to isolate user data and enable
+                        fast queries.</li>
+                    <li>Delivered a cost-efficient serverless backend with near-zero idle cost and auto-scaling
+                        capabilities.</li>
+                    <li>Implemented CORS, input sanitization, and least-privilege IAM roles for Lambdas and API Gateway.
+                    </li>
+                    <li>Added CI/CD pipeline to automatically publish frontend updates to S3 on push to main (optional).
+                    </li>
+                </ul>
+
+                <h2>🧮 Metrics & Operational Snapshot</h2>
+                <ul>
+                    <li>Average API latency (p95): &lt; 150 ms (Lambda cold starts minimized via small package size).
+                    </li>
+                    <li>Estimated monthly cost (low-traffic): under $5 — thanks to S3 + pay-per-request Lambda &
+                        DynamoDB.</li>
+                    <li>Security: Cognito-managed MFA-ready flows and fine-grained IAM policies for least privilege.
+                    </li>
+                    <li>Scalability: DynamoDB on-demand mode and Lambda concurrency provide automatic scaling for
+                        traffic spikes.</li>
+                </ul>
+
+                <h2>🌟 Outcome</h2>
+                <ul>
+                    <li>Delivered a production-ready serverless notes app with secure authentication and efficient note
+                        storage.</li>
+                    <li>Reduced operational overhead by serving the UI as a static site and using serverless APIs for
+                        business logic.</li>
+                    <li>Produced a portable architecture that can be extended with features like attachments, sharing,
+                        or team collaboration.</li>
+                </ul>
+
+                <h2>🧩 Future Enhancements</h2>
+                <ul>
+                    <li>Enable attachments by integrating S3 presigned uploads and storing metadata in DynamoDB.</li>
+                    <li>Add full-text search with OpenSearch or integrate DynamoDB Global Secondary Indexes for richer
+                        queries.</li>
+                    <li>Implement soft-delete + versioning for notes.</li>
+                    <li>Introduce server-side pagination, role-based access control for shared notes, and an admin
+                        dashboard.</li>
+                    <li>Ship native mobile apps that sync with the same backend and support offline-first behavior.</li>
+                </ul>
+
+                <h2>💡 What This Project Demonstrates</h2>
+                <ul>
+                    <li>Practical knowledge of AWS serverless architecture and design patterns.</li>
+                    <li>Ability to implement secure authentication flows (Cognito + API Gateway).</li>
+                    <li>Experience in building low-cost, maintainable, and highly-scalable web applications.</li>
+                    <li>Hands-on skills with DynamoDB data modelling and Lambda-based API design.</li>
+                </ul>
+            </div>
+        </div>
+    </template>
+    <template id="proj-4">
+        <div class="project-detail">
+            <h1 class="project-title">AWS-Powered RAG Chatbot with Document Intelligence - Serverless</h1>
+            <p class="project-meta">Technologies: <span>Amazon S3, CloudFront, API Gateway, AWS Lambda, Amazon Cognito,
+                    DynamoDB</span></p>
+
+            <img src="images/s-rag.png" alt="Serverless RAG" width="900">
+            <div class="project-content">
+                <p>
+                <h2>About the Project</h2>
+                A sophisticated <strong>Retrieval-Augmented Generation (RAG) chatbot</strong> that delivers accurate,
+                context-aware responses by combining <strong>AWS Bedrock foundation models</strong> with
+                <strong>Pinecone vector search</strong>.
+                This serverless solution features secure authentication, intelligent document processing,
+                and a responsive web interface — all provisioned using <strong>Terraform</strong>.
+                </p>
+
+                <h2>🧠 Key Features</h2>
+
+                <h4>1. Intelligent Document Processing</h4>
+                <ul>
+                    <li><strong>Document Ingestion:</strong> Secure upload and processing of multiple document formats
+                    </li>
+                    <li><strong>Vector Embeddings:</strong> Content transformed into embeddings using AWS Bedrock</li>
+                    <li><strong>Contextual Search:</strong> Relevant document retrieval via Pinecone similarity search
+                    </li>
+                </ul>
+
+                <h4>2. Advanced AI Integration</h4>
+                <ul>
+                    <li><strong>AWS Bedrock:</strong> Uses state-of-the-art foundation models for response generation
+                    </li>
+                    <li><strong>Context-Aware Responses:</strong> Combines retrieved documents with LLM reasoning</li>
+                    <li><strong>Multi-turn Conversations:</strong> Maintains chat history for coherent interactions</li>
+                </ul>
+
+                <h4>3. Secure Authentication & Authorization</h4>
+                <ul>
+                    <li><strong>Amazon Cognito:</strong> Email/password authentication with JWT-based sessions</li>
+                    <li><strong>Token Management:</strong> Secure access and refresh token handling</li>
+                    <li><strong>Role-Based Access:</strong> Fine-grained permissions for different user types</li>
+                </ul>
+
+                <h4>4. Serverless Architecture</h4>
+                <ul>
+                    <li><strong>AWS Lambda:</strong> Event-driven backend for chat and document processing</li>
+                    <li><strong>API Gateway:</strong> Scalable REST APIs with validation and throttling</li>
+                    <li><strong>S3 & CloudFront:</strong> Fast, globally distributed frontend delivery</li>
+                </ul>
+
+                <h4>5. Data Management</h4>
+                <ul>
+                    <li><strong>Pinecone Vector DB:</strong> High-performance semantic search storage</li>
+                    <li><strong>AWS Secrets Manager:</strong> Secure storage of API keys and credentials</li>
+                    <li><strong>S3 Storage:</strong> Durable document storage with versioning enabled</li>
+                </ul>
+
+                <h2>⚙️ Technical Implementation</h2>
+
+                <h4>Frontend</h4>
+                <ul>
+                    <li>Responsive, mobile-first UI with dark/light theme support</li>
+                    <li>Real-time chat experience</li>
+                    <li>Progressive Web App (PWA) capabilities</li>
+                </ul>
+
+                <h4>Backend Services</h4>
+                <p><strong>Document Processing Pipeline:</strong></p>
+                <ul>
+                    <li>Text extraction and intelligent chunking</li>
+                    <li>Vector embedding generation via AWS Bedrock</li>
+                    <li>Indexing and retrieval using Pinecone</li>
+                </ul>
+
+                <p><strong>Chat API:</strong></p>
+                <ul>
+                    <li>User query processing and semantic search</li>
+                    <li>Context-aware LLM response generation</li>
+                    <li>Conversation history management</li>
+                </ul>
+
+                <h2>🔍 Infrastructure Automation (Terraform)</h2>
+                <ul>
+                    <li><strong>Infrastructure as Code:</strong> End-to-end AWS provisioning using Terraform</li>
+                    <li><strong>Single-Command Deployment:</strong> Complete setup via <code>terraform apply</code></li>
+                    <li><strong>Modular Design:</strong> Reusable Terraform modules</li>
+                    <li><strong>State Management:</strong> Remote state stored in S3 with DynamoDB locking</li>
+                    <li><strong>Environment Parity:</strong> Consistent staging and production environments</li>
+                </ul>
+
+                <h2>🌟 Business Value Delivered</h2>
+                <ul>
+                    <li><strong>80% faster response time</strong> compared to traditional keyword search</li>
+                    <li><strong>90% accuracy improvement</strong> using RAG over standalone LLMs</li>
+                    <li><strong>99.9% availability</strong> with AWS serverless architecture</li>
+                    <li><strong>Enterprise-grade security</strong> aligned with SOC 2, HIPAA, and GDPR principles</li>
+                </ul>
+
+                <h2>⚙️ Technical Stack</h2>
+                <ul>
+                    <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript (ES6+)</li>
+                    <li><strong>Backend:</strong> AWS Lambda, API Gateway</li>
+                    <li><strong>AI/ML:</strong> AWS Bedrock, Pinecone Vector Database</li>
+                    <li><strong>Infrastructure:</strong> AWS (S3, CloudFront, Cognito, Secrets Manager), Terraform</li>
+                </ul>
+
+                <h2>💡 Why This Project Stands Out</h2>
+                <ul>
+                    <li><strong>Cost-Efficient:</strong> Serverless, pay-only-for-usage model</li>
+                    <li><strong>Highly Scalable:</strong> Handles traffic spikes automatically</li>
+                    <li><strong>Infrastructure Reproducibility:</strong> Fully Terraform-managed AWS stack</li>
+                    <li><strong>Enterprise-Ready:</strong> Security-first design with clean architecture</li>
+                    <li><strong>Future-Proof:</strong> Modular design for easy AI model or data source upgrades</li>
+                </ul>
+
+                <p class="project-summary">
+                    This project demonstrates strong expertise in <strong>AWS cloud architecture</strong>,
+                    <strong>Terraform-based infrastructure automation</strong>, and
+                    <strong>AI-powered RAG systems</strong> to solve real-world knowledge management challenges.
+                </p>
+            </div>
+        </div>
+    </template>
+    <template id="proj-5">
+        <div class="project-detail">
+            <h1>AWS Cloud Portfolio - Automated Static Website Deployment (CI/CD + CloudFront)</h1>
+            <p class="project-meta">Technologies: <span>AWS, HTML, JS, CSS, jQuery</span></p>
+
+            <img src="images/s3-static-web-2.png" alt="Automated Static Website Workflow" width="1200">
+            <a href="https://dysi4rqc9dbbx.cloudfront.net/">CloudFront Link</a>
+            <a href="https://s3.console.aws.amazon.com/s3/buckets/portfolio-website/">S3 Link</a>
+            <div class="project-content">
+                <h2>About the Project</h2>
+                <p>Designed and implemented a fully automated static website deployment pipeline using AWS native
+                    services
+                    integrated with GitHub.
+                    This project demonstrates end-to-end DevOps automation, serverless architecture, and secure global
+                    delivery
+                    — all built within the AWS Free Tier.</p>
+
+                <h2>Features</h2>
+                <ul>
+                    <li>Continuous Deployment: Automatic deployment from GitHub → AWS S3 on every push to the main
+                        branch via
+                        AWS CodePipeline.</li>
+                    <li>Zero Downtime Delivery: Uses Amazon S3 static hosting with version-safe rollbacks.</li>
+                    <li>Global Performance: Integrated Amazon CloudFront CDN to cache assets globally and serve the site
+                        over
+                        HTTPS with minimal latency.</li>
+                    <li>Smart Cache Invalidation: An AWS Lambda function automatically invalidates CloudFront cache
+                        whenever new
+                        content is deployed.</li>
+                    <li>Event-Driven Automation: Amazon EventBridge triggers the Lambda upon CodePipeline SUCCEEDED
+                        events — a
+                        100% serverless CI/CD flow.</li>
+                    <li>Secure Integration: GitHub connected using AWS CodeStar Connections, ensuring secret-free
+                        deployments
+                        without exposing credentials.
+                    <li>Cost-Effective: Utilizes AWS Free Tier services, with no additional costs for static hosting or
+                        CDN.
+                    </li>
+                    </li>
+                </ul>
+                <h2>Tech Stack:</h2>
+                <ul>
+                    <li>AWS: S3 · CloudFront · CodePipeline · Lambda · EventBridge · CodeStar Connections, API Gateway,
+                        SES</li>
+                    <li>Frontend: HTML · CSS · JavaScript · jQuery (Chronark-style responsive design)</li>
+                    <li>DevOps Tools: Git · GitHub Actions (optional) · CloudWatch Logs for monitoring</li>
+                </ul>
+                <h2>⚙️ Workflow Summary:</h2>
+                <ul>
+                    <li>1. Developer commits changes to main in GitHub.</li>
+                    <li>2. AWS CodePipeline automatically builds and deploys updated files to S3.</li>
+                    <li>3. EventBridge detects pipeline success and invokes a Lambda function.</li>
+                    <li>4. Lambda invalidates CloudFront cache to ensure users instantly get fresh content.</li>
+                    <li>5. CloudFront globally serves the latest version through its CDN edge locations.</li>
+                    <li>6. API Gateway receives the request and forwards it to the Lambda function.</li>
+                    <li>7. Lambda function processes the request and sends an email using AWS SES.</li>
+                    <li>8. SES sends the email to the specified recipient.</li>
+                </ul>
+                <h2>🌍 Outcome:</h2>
+                <ul>
+                    <li>100% automated hosting pipeline</li>
+                    <li>less than 1 min deployment latency worldwide</li>
+                    <li>Zero manual intervention required</li>
+                    <li>Secure, scalable, and globally distributed portfolio website.</li>
+                    <li>Cost-Effective: Utilizes AWS Free Tier services, with no additional costs for static hosting or
+                        CDN.
+                    </li>
+                    <li>aws s3 sync - can be useful instead of codepipeline while only one user is updating files in s3
+                        from
+                        local - fast and simple</li>
+                    <li>Direct email from portfolio website to owner, while staying in static website of s3 </li>
+                </ul>
+
 
             </div>
         </div>
-    </section>
+    </template>
+    <template id="proj-6">
+        <div class="project-detail">
+            <h1 class="project-title">AWS WorkMail Automated Email Signature Management – Serverless</h1>
+            <p class="project-meta">
+                Technologies:
+                <span>Amazon WorkMail, AWS Lambda, Amazon S3, IAM, CloudWatch, Terraform</span>
+            </p>
 
+            <img src="images/workmail-signature.png" alt="AWS WorkMail Signature Automation" width="900">
+
+            <div class="project-content">
+
+                <p>
+                <h2>About the Project</h2>
+                This project demonstrates how to
+                automatically append <strong>professional email signatures</strong> to outgoing emails using
+                <strong>Amazon WorkMail</strong> and <strong>AWS Lambda</strong>.
+                The solution dynamically selects and injects signatures based on contextual rules such as
+                sender address or department, ensuring consistent branding, compliance messaging,
+                and professional communication across the organization.
+                </p>
+
+                <h2>🧠 Key Features</h2>
+
+                <h4>1. Automated Email Signature Injection</h4>
+                <ul>
+                    <li><strong>WorkMail Email Flow Rules:</strong> Intercepts outgoing emails in real time</li>
+                    <li><strong>Dynamic Signature Selection:</strong> Chooses signature based on sender or context</li>
+                    <li><strong>HTML & Plain Text Support:</strong> Proper handling of multipart emails</li>
+                </ul>
+
+                <h4>2. Serverless Email Processing</h4>
+                <ul>
+                    <li><strong>AWS Lambda:</strong> Event-driven email processing with Python 3.11</li>
+                    <li><strong>No Server Management:</strong> Fully managed, auto-scaling execution</li>
+                    <li><strong>Graceful Error Handling:</strong> Emails proceed even if signature logic fails</li>
+                </ul>
+
+                <h4>3. Centralized Signature Management</h4>
+                <ul>
+                    <li><strong>Amazon S3:</strong> Stores department-wise signature templates</li>
+                    <li><strong>Easy Updates:</strong> Modify signatures without redeploying Lambda</li>
+                    <li><strong>Multiple Variants:</strong> Support, Sales, Legal, Default signatures</li>
+                </ul>
+
+                <h4>4. Security & Access Control</h4>
+                <ul>
+                    <li><strong>IAM Least Privilege:</strong> Tightly scoped permissions</li>
+                    <li><strong>HTTPS-only S3 Access:</strong> Enforced via bucket policy</li>
+                    <li><strong>No Hardcoded Secrets:</strong> Uses IAM roles for authentication</li>
+                </ul>
+
+                <h2>⚙️ Technical Implementation</h2>
+
+                <h4>Email Processing Workflow</h4>
+                <ul>
+                    <li>Outgoing email triggers WorkMail Email Flow Rule</li>
+                    <li>Lambda retrieves raw email content via WorkMail Message Flow API</li>
+                    <li>Signature selected from S3 based on sender or department</li>
+                    <li>Signature appended to email body (HTML supported)</li>
+                    <li>Modified email written back to WorkMail</li>
+                </ul>
+
+                <h4>Monitoring & Observability</h4>
+                <ul>
+                    <li><strong>Amazon CloudWatch Logs:</strong> Execution logs and debugging data</li>
+                    <li><strong>Log Retention:</strong> Configured for cost-efficient monitoring</li>
+                </ul>
+
+                <h2>🔍 Infrastructure Automation (Terraform)</h2>
+                <ul>
+                    <li><strong>Infrastructure as Code:</strong> Lambda, IAM, S3, CloudWatch fully managed via Terraform
+                    </li>
+                    <li><strong>Single-Command Deployment:</strong> Entire stack deployed using
+                        <code>terraform apply</code>
+                    </li>
+                    <li><strong>Automated Packaging:</strong> Lambda ZIP created via Terraform archive provider</li>
+                    <li><strong>Repeatable Environments:</strong> Easy dev / prod setup</li>
+                    <li><strong>Version Controlled:</strong> Infrastructure tracked alongside application code</li>
+                </ul>
+
+                <h2>🌟 Business Value Delivered</h2>
+                <ul>
+                    <li><strong>Consistent Email Branding</strong> across departments</li>
+                    <li><strong>Zero Manual Effort</strong> for end users</li>
+                    <li><strong>High Scalability</strong> with serverless execution</li>
+                    <li><strong>Cost-Optimized</strong> pay-per-use AWS services</li>
+                    <li><strong>Enterprise-Ready Security</strong> with IAM best practices</li>
+                </ul>
+
+                <h2>⚙️ Technical Stack</h2>
+                <ul>
+                    <li><strong>Compute:</strong> AWS Lambda (Python)</li>
+                    <li><strong>Email:</strong> Amazon WorkMail</li>
+                    <li><strong>Storage:</strong> Amazon S3</li>
+                    <li><strong>Monitoring:</strong> Amazon CloudWatch</li>
+                    <li><strong>Infrastructure:</strong> AWS IAM, Terraform</li>
+                </ul>
+
+                <h2>💡 Why This Project Stands Out</h2>
+                <ul>
+                    <li><strong>Real-World Enterprise Use Case</strong> for email infrastructure automation</li>
+                    <li><strong>Deep WorkMail Integration</strong> using Message Flow APIs</li>
+                    <li><strong>Fully Serverless</strong> with zero operational overhead</li>
+                    <li><strong>Terraform-Driven</strong> reproducible infrastructure</li>
+                    <li><strong>Extensible Design</strong> for future SaaS or multi-tenant use</li>
+                </ul>
+
+
+            </div>
+        </div>
+    </template>
+    <template id="proj-7">
+        <div class="project-detail">
+            <h1>AI-Powered WhatsApp Healthcare Assistant – Serverless Agent-Based System</h1>
+            <p class="project-meta">Technologies: <span>AWS Lambda, DynamoDB, LangGraph, LLM (RAG), WhatsApp Business
+                    API</span></p>
+
+            <img src="images/whatsapp-healthcare.png" alt="WhatsApp Healthcare Assistant" width="800">
+
+            <div class="project-content">
+                <h2>About the Project</h2>
+                <p>
+                    AI-Powered WhatsApp Healthcare Assistant is a production-grade, multilingual (English/Gujarati)
+                    conversational system designed to automate hospital-patient interactions through WhatsApp.
+                    The system leverages AWS serverless architecture and LLM-based agent orchestration to enable
+                    appointment booking, symptom-based doctor recommendation, medical Q&A, and secure report
+                    summarization.
+                    Built with scalability, privacy, and healthcare-safe responses in mind, the architecture follows
+                    an event-driven, stateless execution model with persistent conversation state management.
+                </p>
+
+                <h2>🧠 Key Objectives</h2>
+                <ul>
+                    <li>Design a scalable WhatsApp-based healthcare assistant with multilingual support.</li>
+                    <li>Implement agent-based routing for appointment booking, report analysis, and medical Q&A.</li>
+                    <li>Ensure secure document handling with sandboxed processing.</li>
+                    <li>Maintain conversation continuity using stateless Lambda execution with external state storage.
+                    </li>
+                    <li>Optimize for cost-efficiency, reliability, and healthcare compliance.</li>
+                </ul>
+
+                <h2>⚙️ Tech Stack</h2>
+                <ul>
+                    <li>Cloud Architecture: AWS Serverless (Lambda-based execution model)</li>
+                    <li>State Management: Amazon DynamoDB with TTL-based auto-expiry</li>
+                    <li>Agent Orchestration: LangGraph-based routing and decision logic</li>
+                    <li>LLM Integration: RAG-based contextual responses</li>
+                    <li>Document Processing: Isolated Lambda-based sandbox execution</li>
+                    <li>Messaging Platform: WhatsApp Business API (1-to-1 communication)</li>
+                    <li>Event Handling: Event-driven asynchronous workflows</li>
+                    <li>Language Support: English & Gujarati (template-driven deterministic responses)</li>
+                </ul>
+
+                <h2>🔍 System Architecture</h2>
+                <ul>
+                    <li>1. Message Ingestion:
+                        Each incoming WhatsApp message triggers a stateless AWS Lambda invocation.</li>
+
+                    <li>2. Conversation State Management:
+                        Conversation context (intent, step, language preference) is stored in DynamoDB.
+                        Each Lambda reads and updates state to maintain multi-step workflows.</li>
+
+                    <li>3. Agent Routing Layer:
+                        LangGraph determines user intent (appointment, report, medical Q&A, escalation).
+                        Deterministic keyword routing with LLM fallback ensures safe intent detection.</li>
+
+                    <li>4. Appointment Booking Flow:
+                        Multi-step interaction collects symptoms, recommends doctors, and confirms booking.
+                        State transitions handled explicitly via step tracking.</li>
+
+                    <li>5. Secure Document Processing:
+                        Uploaded medical reports are stored in isolated storage and processed in sandboxed Lambda
+                        environments.
+                        Raw files are never exposed to the LLM; only sanitized extracted text is used.</li>
+
+                    <li>6. Asynchronous Workflow Handling:
+                        Long-running tasks (report processing) use event-driven updates and user notifications.</li>
+
+                    <li>7. State Lifecycle Management:
+                        DynamoDB TTL automatically cleans inactive conversation records.</li>
+                </ul>
+
+                <h2>🔬 Key Technical Achievements</h2>
+                <ul>
+                    <li>📩 Event-Driven Architecture — Each WhatsApp message handled as independent stateless execution.
+                    </li>
+                    <li>🗂 Conversation State Persistence — Enabled scalable multi-step workflows without session
+                        management.</li>
+                    <li>🔐 Secure File Isolation — Implemented sandboxed Lambda execution for safe document
+                        summarization.</li>
+                    <li>🌐 Multilingual Support — Built deterministic template system for English and Gujarati
+                        responses.</li>
+                    <li>⚡ Cost Optimization — Reduced orchestration overhead by using lightweight code-driven workflow
+                        instead of heavy state machines.</li>
+                    <li>📈 Production Scalability — Designed horizontally scalable architecture supporting high
+                        concurrent users.</li>
+                </ul>
+
+                <h2>🧮 Operational & Reliability Measures</h2>
+                <ul>
+                    <li>State expiry using DynamoDB TTL to prevent stale sessions.</li>
+                    <li>Graceful failure handling with explicit FAILED state updates.</li>
+                    <li>Idempotent processing to prevent duplicate bookings or repeated executions.</li>
+                    <li>Separation of responsibilities: Chat handling Lambda vs Document processing Lambda.</li>
+                </ul>
+
+                <h2>🌟 Outcome</h2>
+                <ul>
+                    <li>Delivered a scalable healthcare chatbot capable of handling real-world patient workflows.</li>
+                    <li>Enabled secure, multilingual communication through WhatsApp without requiring mobile app
+                        installation.</li>
+                    <li>Built a cost-efficient, serverless architecture optimized for high-volume interactions.</li>
+                    <li>Designed a modular agent-based framework adaptable for future healthcare automation needs.</li>
+                </ul>
+
+                <h2>🧩 Future Enhancements</h2>
+                <ul>
+                    <li>Introduce advanced intent classification using embedding-based semantic routing.</li>
+                    <li>Integrate hospital EMR/EHR systems for automated record updates.</li>
+                    <li>Add analytics dashboard for hospital administrators.</li>
+                    <li>Enhance compliance controls with structured audit logs and consent management.</li>
+                </ul>
+
+                <h2>💡 What This Project Demonstrates</h2>
+                <ul>
+                    <li>Strong understanding of serverless, event-driven architecture for conversational AI systems.
+                    </li>
+                    <li>Practical implementation of agent-based LLM orchestration in production-like scenarios.</li>
+                    <li>Security-first design with sandboxed execution and least-privilege access.</li>
+                    <li>Ability to balance AI intelligence with operational reliability and cost efficiency.</li>
+                    <li>Enterprise-oriented thinking aligned with scalable healthcare solution design.</li>
+                </ul>
+
+            </div>
+        </div>
+    </template>
+    <template id="proj-8">
+        <div class="project-detail">
+            <h1 class="project-title">MeetingMind AI – Production-Grade Meeting Intelligence SaaS</h1>
+            <p class="project-meta">Technologies:
+                <span>FastAPI, PostgreSQL, SQLAlchemy, AWS S3, AWS Transcribe, Whisper, Ollama, Claude, GPT-4, AWS
+                    Bedrock,
+                    Stripe, Next.js, React, Docker, GitHub Actions</span>
+            </p>
+
+            <img src="images/meeting-ai.png" alt="MeetingMind AI architecture" width="900">
+
+            <div class="project-content">
+                <h2>About the Project</h2>
+                <p>
+                    <strong>MeetingMind AI</strong> is a production-grade, multi-tenant SaaS platform that turns
+                    business
+                    meetings into actionable intelligence. Teams upload audio or video, and the platform automatically
+                    <strong>transcribes</strong> the recording, <strong>summarizes</strong> the discussion, and
+                    <strong>extracts</strong> action items, decisions, and key topics — all organized inside
+                    collaborative
+                    workspaces with search and team management.
+                </p>
+                <p>
+                    It is built around an async <strong>FastAPI</strong> backend with a PostgreSQL-backed job queue, a
+                    provider-agnostic LLM layer, a switchable transcription engine, and full <strong>Stripe</strong>
+                    billing
+                    with usage metering. The frontend is a modern <strong>Next.js / React</strong> app.
+                </p>
+
+                <h2>🧠 What It Does</h2>
+                <ul>
+                    <li><strong>Transcribes</strong> meetings with OpenAI Whisper (local dev) or AWS Transcribe with
+                        speaker
+                        labels (production) — switchable by a single environment flag.</li>
+                    <li><strong>Summarizes</strong> discussions through a configurable LLM (Ollama, Claude, GPT-4, or
+                        Bedrock).</li>
+                    <li><strong>Extracts</strong> action items, owners, deadlines, decisions, and key topics into
+                        structured
+                        data.</li>
+                    <li><strong>Organizes</strong> meetings in multi-tenant workspaces with role-based team
+                        collaboration.</li>
+                    <li><strong>Meters &amp; bills</strong> usage with Stripe subscriptions and plan-limit enforcement.
+                    </li>
+                </ul>
+
+                <h2>⚙️ Tech Stack</h2>
+                <ul>
+                    <li><strong>Backend:</strong> FastAPI, Uvicorn, SQLAlchemy 2.0, Alembic, JWT (python-jose), bcrypt
+                    </li>
+                    <li><strong>Data:</strong> PostgreSQL 16 — users, workspaces, members, meetings, subscriptions,
+                        async job
+                        queue, cost &amp; transcript cache tables</li>
+                    <li><strong>Storage:</strong> AWS S3 (audio/video) with a disk-backed local-storage fallback for dev
+                    </li>
+                    <li><strong>Transcription:</strong> Whisper (local / OpenAI API) and AWS Transcribe, behind a
+                        factory chosen
+                        via <code>TRANSCRIPTION_SERVICE</code></li>
+                    <li><strong>LLM Layer:</strong> a provider abstraction (<code>BaseLLMProvider</code> +
+                        <code>LLMFactory</code>)
+                        over Ollama (llama3.1, free local default), Claude, OpenAI GPT-4/3.5, and AWS Bedrock
+                    </li>
+                    <li><strong>Billing:</strong> Stripe — Checkout, Customer Portal, signature-verified webhooks,
+                        currency-aware
+                        pricing (USD/INR)</li>
+                    <li><strong>Frontend:</strong> Next.js + React, Tailwind, React Query, Zustand, react-hook-form +
+                        Zod,
+                        TypeScript</li>
+                    <li><strong>DevOps:</strong> Docker (lean python:3.12-slim image), Docker Compose, GitHub Actions
+                        CI/CD, AWS
+                        ECR, EC2 + RDS, slowapi rate limiting, Pytest (90 tests)</li>
+                </ul>
+
+                <h2>🔍 System Architecture</h2>
+                <ul>
+                    <li><strong>User layer (Next.js):</strong> auth, meeting upload, dashboard, and workspace management
+                        talk to
+                        the API over HTTPS with JWT access/refresh tokens.</li>
+                    <li><strong>API layer (FastAPI):</strong> versioned <code>/api/v1</code> routes for auth,
+                        workspaces,
+                        members, meetings, and billing — workspace-scoped via an <code>X-Workspace-ID</code> header.
+                    </li>
+                    <li><strong>Service &amp; data-access layer:</strong> Auth, Workspace, Meeting, S3, Job Queue, and
+                        Worker
+                        services backed by clean repositories.</li>
+                    <li><strong>Data &amp; external layer:</strong> PostgreSQL, AWS S3, the transcription engines, and
+                        the LLM
+                        providers.</li>
+                </ul>
+
+                <h2>🔄 Meeting Processing Pipeline</h2>
+                <ul>
+                    <li>1. <strong>Upload</strong> — validate format (mp3, wav, m4a, mp4), create the meeting record,
+                        store in
+                        S3.</li>
+                    <li>2. <strong>Queue</strong> — insert a job into the PostgreSQL <code>async_jobs</code> table (no
+                        Redis
+                        needed).</li>
+                    <li>3. <strong>Process</strong> — a background worker polls every 5 seconds and marks the job
+                        running.</li>
+                    <li>4. <strong>Transcribe</strong> — the factory selects Whisper or AWS Transcribe; a SHA256
+                        transcript
+                        cache avoids re-paying for identical audio (~20–30% savings).</li>
+                    <li>5. <strong>Summarize</strong> — the LLM returns a summary, action items, and key topics, parsed
+                        tolerantly to survive model quirks.</li>
+                    <li>6. <strong>Complete</strong> — results are saved and the meeting status flips to completed
+                        (typically
+                        1–15 minutes end-to-end).</li>
+                </ul>
+
+                <h2>👥 Multi-Tenancy &amp; Billing</h2>
+                <ul>
+                    <li><strong>Workspaces &amp; roles:</strong> owner / admin / member RBAC — members view, admins
+                        manage
+                        members and settings, and the last owner can never be demoted or removed.</li>
+                    <li><strong>Subscription tiers:</strong> Free (5 meetings/mo, 500&nbsp;MB), Pro, Business, and
+                        Enterprise —
+                        each with monthly meeting and storage limits.</li>
+                    <li><strong>Enforcement:</strong> uploads check plan limits and return <strong>HTTP 402</strong>
+                        with an
+                        upgrade prompt when exceeded.</li>
+                    <li><strong>Stripe sync:</strong> webhooks keep the <code>subscriptions</code> table in step with
+                        Checkout
+                        and Portal events.</li>
+                </ul>
+
+                <h2>🔬 Key Technical Achievements</h2>
+                <ul>
+                    <li>🧩 <strong>Pluggable engines</strong> — one interface over four LLM providers and two
+                        transcription
+                        backends, switchable per environment with zero code changes.</li>
+                    <li>🧵 <strong>Redis-free job queue</strong> — durable async processing built directly on PostgreSQL
+                        with a
+                        polling worker and proper failure states.</li>
+                    <li>💳 <strong>Tested Stripe billing</strong> — end-to-end Checkout → subscription → webhook sync
+                        verified
+                        against a live test account, including India RBI e-mandate handling and INR pricing.</li>
+                    <li>💰 <strong>Cost optimization</strong> — transcript caching, tiered model usage, and
+                        Claude-over-GPT-4
+                        summaries cut summary costs up to ~87% (~$1,300+ projected annual savings).</li>
+                    <li>🧪 <strong>Quality gates</strong> — a 90-test Pytest suite, per-endpoint rate limiting, and a
+                        4-stage
+                        GitHub Actions pipeline (lint → test → ECR push → EC2 deploy).</li>
+                </ul>
+
+                <h2>🌟 Outcome</h2>
+                <ul>
+                    <li>Delivered a billable, multi-tenant meeting-intelligence platform with auth, workspaces,
+                        processing, and
+                        subscriptions.</li>
+                    <li>Designed for flexible cost/privacy trade-offs through hybrid cloud and fully local (Ollama +
+                        Whisper)
+                        processing.</li>
+                    <li>Shipped reproducible infrastructure: containerized, CI/CD-driven, and deployable to AWS.</li>
+                    <li>Targets &lt;10&nbsp;min processing, &lt;2&nbsp;s retrieval, and &lt;$0.60 per transcribed hour.
+                    </li>
+                </ul>
+
+                <h2>💡 What This Project Demonstrates</h2>
+                <ul>
+                    <li>End-to-end ownership of a real SaaS: API design, data modelling, async workers, billing, and
+                        deployment.</li>
+                    <li>Designing multi-provider AI systems with clean abstractions and graceful fallbacks.</li>
+                    <li>Building billable infrastructure with metering, RBAC, and subscription enforcement.</li>
+                    <li>Production discipline — testing, rate limiting, containerization, and CI/CD from the start.</li>
+                </ul>
+
+                <p class="project-summary">
+                    MeetingMind AI showcases full-stack AI platform engineering — orchestrating transcription and LLM
+                    services
+                    behind a tested, billable, infrastructure-as-code SaaS backend with a modern React frontend.
+                </p>
+            </div>
+        </div>
+    </template>
+
+    <!-- FOOTER -->
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Varsha Parmar. All rights reserved.</p>
+        <div class="container footer__inner">
+            <a href="#top" class="footer__logo" data-home>
+                <span class="nav__logo-mark" aria-hidden="true"></span> Varsha Parmar
+            </a>
+            <p class="footer__note">© 2026 Varsha Parmar. All rights reserved.</p>
+            <a href="#top" class="footer__top" data-home>Back to top <i class="fas fa-arrow-up"></i></a>
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-
-            if (window.location.hash.startsWith('#project-')) {
-                const projectId = window.location.hash.split('-')[1];
-                loadProjectContent(projectId);
-            }
-
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', async function (e) {
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-
-                    e.preventDefault();
-
-                    if (targetId.startsWith('#')) {
-                        await showSection(targetId);
-                        history.pushState(null, null, targetId);
-                        updateActiveNavLink(targetId.substring(1));
-                    }
-                });
-            });
-
-            // Handle browser back/forward buttons
-            window.addEventListener('popstate', () => {
-                const hash = window.location.hash || '#';
-                const heroSection = document.querySelector('.hero');
-
-                if (hash === '#' || hash === '') {
-                    // Show hero section and hide others
-                    heroSection.style.display = 'block';
-                    heroSection.style.opacity = '1';
-                    document.querySelectorAll('section:not(.hero)').forEach(section => {
-                        section.style.display = 'none';
-                        section.style.opacity = '0';
-                    });
-                } else {
-                    // Show the target section and hide hero
-                    const targetSection = document.querySelector(hash);
-                    if (targetSection) {
-                        heroSection.style.display = 'none';
-                        heroSection.style.opacity = '0';
-                        targetSection.style.display = 'block';
-                        targetSection.style.opacity = '1';
-                        updateActiveNavLink(hash.substring(1));
-                    }
-                }
-            });
-
-            // Initial state based on URL hash
-            if (window.location.hash) {
-                const targetSection = document.querySelector(window.location.hash);
-                const heroSection = document.querySelector('.hero');
-                if (targetSection) {
-                    heroSection.style.display = 'none';
-                    heroSection.style.opacity = '0';
-                    targetSection.style.display = 'block';
-                    targetSection.style.opacity = '1';
-                    updateActiveNavLink(window.location.hash.substring(1));
-                }
-            }
-        });
-
-        // Function to update active nav link
-        function updateActiveNavLink(sectionId) {
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${sectionId}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        // Update the home link handler
-        document.getElementById('home').addEventListener('click', async function (e) {
-            hideProjectContainer();
-            e.preventDefault();
-
-            const allSections = document.querySelectorAll('section:not(.hero):not(.navbar)');
-            const heroSection = document.querySelector('.hero');
-
-            // Use Promise.all to wait for all fade out animations to complete
-            await Promise.all(Array.from(allSections).map(section => {
-                return new Promise(resolve => {
-                    section.style.opacity = '0';
-                    section.style.transform = 'translateY(10px)';
-                    setTimeout(() => {
-                        section.style.display = 'none';
-                        resolve();
-                    }, 300);
-                });
-            }));
-
-            // Fade in hero section with a slight delay
-            heroSection.style.display = 'block';
-            heroSection.style.opacity = '0';
-            heroSection.style.transform = 'translateY(10px)';
-
-            // Trigger reflow
-            void heroSection.offsetHeight;
-
-            // Animate in
-            heroSection.style.opacity = '1';
-            heroSection.style.transform = 'translateY(0)';
-
-            // Update URL and active nav links
-            history.pushState(null, null, ' ');
-            updateActiveNavLink('');
-
-            // Smooth scroll to top
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Update the section transition function
-        function showSection(targetId) {
-
-            return new Promise(resolve => {
-                hideProjectContainer();
-                const targetSection = document.querySelector(targetId);
-                if (!targetSection) return resolve();
-
-                const heroSection = document.querySelector('.hero');
-
-                // Hide hero section when showing projects/contact
-                if (targetId === '#projects' || targetId === '#contact' || targetId === '#email-me') {
-                    heroSection.style.opacity = '0';
-                    heroSection.style.transform = 'translateY(-10px)';
-                    setTimeout(() => {
-                        heroSection.style.display = 'none';
-                    }, 300);
-                } else {
-                    heroSection.style.display = 'block';
-                    heroSection.style.opacity = '1';
-                    heroSection.style.transform = 'translateY(0)';
-                }
-
-                // Hide all other sections
-                document.querySelectorAll('section:not(.hero):not(.navbar)').forEach(section => {
-                    if (section.id !== targetId.substring(1)) {
-                        section.style.opacity = '0';
-                        section.style.transform = 'translateY(10px)';
-                        setTimeout(() => {
-                            section.style.display = 'none';
-                        }, 300);
-                    }
-                });
-
-                // Show target section
-                targetSection.style.display = 'block';
-                targetSection.style.opacity = '0';
-                targetSection.style.transform = 'translateY(10px)';
-
-                // Trigger reflow
-                void targetSection.offsetHeight;
-
-                // Animate in
-                targetSection.style.opacity = '1';
-                targetSection.style.transform = 'translateY(0)';
-
-                resolve();
-            });
-        }
-        // Project loading functionality
-        async function loadProjectContent(projectId) {
-            try {
-                const response = await fetch(`project-content-${projectId}.html`);
-                if (!response.ok) throw new Error('Project not found');
-
-                const html = await response.text();
-                projectContainer = document.getElementById('project-container');
-                // Set the HTML content
-                projectContainer.innerHTML = html;
-                // Hide hero & all sections completely (remove from layout)
-                document.querySelectorAll('.hero, .section').forEach(el => {
-                    el.style.display = 'none';
-                    el.style.opacity = '0';
-                });
-
-                projectContainer.style.display = 'block';
-
-                // animate
-                requestAnimationFrame(() => {
-                    projectContainer.style.opacity = '1';
-                });
-
-            } catch (error) {
-                console.error('Error loading project:', error);
-                alert('Failed to load project. Please try again later.');
-            }
-        }
-
-        // Project card click handler
-        document.addEventListener('click', async (e) => {
-            const projectCard = e.target.closest('.project-card');
-            if (projectCard) {
-                e.preventDefault();
-                const projectId = projectCard.getAttribute('data-project');
-                if (projectId) {
-                    await loadProjectContent(projectId);
-                    history.pushState({ project: projectId }, '', `#project-${projectId}`);
-                }
-            }
-        });
-
-        // Handle browser back/forward
-        window.addEventListener('popstate', () => {
-            const projectContainer = document.getElementById('project-container');
-
-            if (window.location.hash.startsWith('#project-')) {
-                const projectId = window.location.hash.split('-')[1];
-                loadProjectContent(projectId);
-            } else {
-                hideProjectContainer();
-            }
-        });
-
-
-
-
-
-
-        // Show message box dynamically
-        function showMessage(msg, type = 'success') {
-            const box = document.getElementById('message-box');
-            const text = document.getElementById('message-text');
-            text.textContent = msg;
-
-            // Style by type
-            if (type === 'error') {
-                box.style.backgroundColor = '#fef2f2';
-                box.style.borderLeftColor = '#ef4444';
-                box.style.color = '#991b1b';
-            } else {
-                box.style.backgroundColor = '#ecfdf5';
-                box.style.borderLeftColor = '#10b981';
-                box.style.color = '#065f46';
-            }
-
-            box.classList.add('show');
-
-            // Auto-hide after 5s
-            setTimeout(() => box.classList.remove('show'), 5000);
-        }
-
-        function hideProjectContainer() {
-            const pc = document.getElementById('project-container');
-            if (!pc) return;
-
-            pc.style.opacity = '0';
-            setTimeout(() => {
-                pc.style.display = 'none';
-                pc.innerHTML = ''; // optional: clear old project
-            }, 300);
-        }
-
-        // Close button handler
-        document.querySelector('.close-btn').addEventListener('click', () => {
-            document.getElementById('message-box').classList.remove('show');
-        });
-    </script>
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
